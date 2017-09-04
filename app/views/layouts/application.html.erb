@@ -9,6 +9,10 @@
   </head>
 
   <body>
+  <%= form_for :search, method: :get, url: phones_search_path do |form| %>
+  <%= text_field_tag 'term', params[:term], placeholder: "Pesquise por telefone, pessoa, ou divisão", size: 30 %>
+  <%= submit_tag "Pesquisar", name: nil %>
+  <% end %>
     <%= yield %>
   </body>
 </html>

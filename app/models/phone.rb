@@ -6,5 +6,6 @@ class Phone < ApplicationRecord
   pg_search_scope :search, :against => [:ddr, :ramal],
                   :associated_against => {division: [:name, :ancestors],
                                           person: [:name]},
-                  :using => {tsearch: {:dictionary => "portuguese"}}
+                  :using => {tsearch: {:dictionary => "portuguese"}},
+                  :ignoring => :accents
 end
