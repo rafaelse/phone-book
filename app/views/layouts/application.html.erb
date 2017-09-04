@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Pmjphonefinder</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Lista Telefônica PMJ</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-  <%= form_for :search, method: :get, url: phones_search_path do |form| %>
-  <%= text_field_tag 'term', params[:term], placeholder: "Pesquise por telefone, pessoa, ou divisão", size: 30 %>
-  <%= submit_tag "Pesquisar", name: nil %>
-  <% end %>
-    <%= yield %>
-  </body>
+<body>
+<%= form_for :search, method: :get, url: phones_search_path do |form| %>
+    <%= text_field_tag 'term', params[:term], placeholder: "Pesquise por telefone, pessoa, ou divisão", size: 50, id: 'search_field', autofocus: true %>
+    <%= submit_tag "Pesquisar", name: nil, class: "btn btn-default btn-lg", id: 'search_button' %>
+<% end %>
+<%= yield %>
+</body>
 </html>

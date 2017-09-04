@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+#search_field {
+    display: block;
+    width: 80%;
+    margin: auto;
+    font-size: large;
+    position: relative;
+    margin-top: 30px;
+}
+
+#search_button {
+    display: block;
+    margin: 10px auto;
+}
+
+#search_button:after {
+    content: url("search_icon.ico");
+    vertical-align: -30%;
+    margin: 0px 5px;
+    padding: 0px;
+}
