@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'phones#search'
 
   get 'phones', to: 'phones#search'
+  get 'phones/update_depts', as: 'update_depts'
+  get 'phones/update_sectors', as: 'update_sectors'
 
   resources :phones, except: :index do
     get 'delete'

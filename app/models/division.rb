@@ -6,9 +6,9 @@ class Division < ApplicationRecord
 
   before_save :update_ancestors
 
-  scope :secretarias, -> {where(parent_id: nil)}
-  scope :departamentos, -> (sec_id) {where(parent_id: sec_id)}
-  scope :setores, -> (depto_id) {where(parent_id: depto_id)}
+  scope :secretaries, -> {where(parent_id: nil).order(name: :asc)}
+  scope :departments, -> (sec_id) {where(parent_id: sec_id).order(name: :asc)}
+  scope :sectors, -> (dept_id) {where(parent_id: dept_id).order(name: :asc)}
 
   private
 

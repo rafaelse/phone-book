@@ -4,20 +4,20 @@
         <div class="modal-body">
           <ul class="errors"></ul>
           <div class="form-group">
-            <%= f.label :nome, class: "control-label" %>
-            <%= f.text_field :nome, class: "form-control" %>
+            <%= f.label :person_id, 'Pessoa', class: "control-label" %>
+            <%= f.collection_select :person_id, @people, :id, :name,{},  {class: "form-control"} %>
           </div>
           <div class="form-group">
-            <%= f.label :secretaria, class: "control-label" %>
-            <%= f.collection_select :sec_id, @secretarias, :id, :name, {}, {id: 'sec_select', class: 'form-control'} %>
+            <%= f.label :sec_id, 'Secretaria', class: "control-label" %>
+            <%= f.collection_select :sec_id, @secretaries, :id, :name, {}, {id: 'sec_select', class: 'form-control'} %>
           </div>
           <div class="form-group">
-            <%= f.label :departamento, class: "control-label" %>
-            <%= f.collection_select :depto_id, @departamentos, :id, :name, {}, {id: 'depto_select', class: 'form-control'} %>
+            <%= f.label :dept_id, 'Departamento', class: "control-label" %>
+            <%= f.collection_select :dept_id, @departments, :id, :name, {}, {id: 'dept_select', class: 'form-control'} %>
           </div>
           <div class="form-group">
-            <%= f.label :setor, class: "control-label" %>
-            <%= f.collection_select :setor_id, @setores, :id, :name, {}, {id: 'setor_select', class: 'form-control'} %>
+            <%= f.label :sector_id, 'Setor', class: "control-label" %>
+            <%= f.collection_select :sector_id, @sectors, :id, :name, {}, {id: 'sector_select', class: 'form-control'} %>
           </div>
           <div class="form-group">
             <%= f.label :ddr, 'DDR', class: "control-label" %>
@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <%= f.submit "Salvar" ,class: "btn btn-primary" %>
+          <%= f.submit "Salvar", class: "btn btn-primary" %>
           <%= link_to "Cancelar", "#", class: "btn", data: {dismiss: "modal"} %>
         </div>
     <% end %>

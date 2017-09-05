@@ -1,6 +1,6 @@
 <tr>
   <td><%= phone.person.name %></td>
-  <td><%= phone.division.name %></td>
+  <td><%= display_division_tree(phone.division) %></td>
   <td><%= phone.ddr %></td>
   <td><%= phone.ramal %></td>
   <td><%= link_to "Editar", edit_phone_path(phone), remote:true, class: "btn btn-default"%></td>
