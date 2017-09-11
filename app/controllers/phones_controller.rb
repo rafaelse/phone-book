@@ -22,6 +22,16 @@ class PhonesController < ApplicationController
     @phone.save
   end
 
+  def delete
+    @phone = Phone.find(params[:phone_id])
+  end
+
+  def destroy
+    @phones = Phone.all.order(created_at: :desc)
+    @phone = Phone.find(params[:id])
+    @phone.destroy
+  end
+
   def update_depts
     @departments = Division.departments(params[:sec_id])
   end

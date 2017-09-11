@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def display_division_tree (division)
-    content_tag("pre", construct_tree(division))
+    content_tag("div", construct_tree(division), class: 'tree')
   end
 
   private
@@ -18,10 +18,10 @@ module ApplicationHelper
       tree += division_stack.pop.name
       unless division_stack.empty?
         tree += "\n"
-        tree += " " * level
+        tree += "    " * level
         tree += "↳"
       end
-      level += 2
+      level += 1
     end
 
     tree
