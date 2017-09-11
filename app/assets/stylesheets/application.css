@@ -14,26 +14,66 @@
  *= require_self
  */
 
+#search_area {
+    width: 70%;
+    margin: 2px auto;
+}
+
+#top_panel {
+    position: fixed;
+    top: 0;
+    height: 180px;
+    width: 100%;
+    background-color: navy;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 #search_field {
     display: block;
     width: 80%;
-    margin: auto;
     font-size: large;
     position: relative;
-    margin-top: 30px;
+    margin: 0px auto;
+    border-width: 0px;
+    border-radius: 5px;
 }
 
 #search_button {
     display: block;
-    margin: 10px auto;
+    margin-left: 5px;
+    width: 100px;
+    height: 50px;
+    margin: 5px auto;
+    background-color: white;
+    border-style: solid;
+    border-color: lightgray;
+    border-width: thin;
+    border-radius: 5px;
 }
 
-#search_button:after {
-    content: url("search_icon.ico");
-    vertical-align: -30%;
-    margin: 0px 5px;
-    padding: 0px;
+.container {
+    margin-top: 200px;
 }
+
+#title {
+    color: white;
+    text-align: center;
+    margin: 5px auto;
+}
+
+#badge {
+    margin-left: 20px;
+    width: 15%;
+    height: 150px;
+}
+
+#login_area {
+    width: 20%;
+}
+
+
 
 
 
