@@ -1,0 +1,11 @@
+pt:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank:
+                one: "deve ser informada"
+                other: "devem ser informadas"
+                many: "devem ser informadas"
