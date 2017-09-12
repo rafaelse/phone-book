@@ -1,24 +1,12 @@
 <div class="container">
   <!--<div class="well">-->
-    <!--<%= link_to "Adicionar Telefone", new_phone_path, remote: true, class: "btn btn-primary" %>-->
+  <!--<%= link_to "Adicionar Telefone", new_phone_path, remote: true, class: "btn btn-primary" %>-->
   <!--</div>-->
   <div class="new-phone"></div>
 
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>Pessoa</th>
-      <th>Divisão</th>
-      <th>DDR</th>
-      <th>Ramal</th>
-      <th>&nbsp;</th>
-      <th>&nbsp;</th>
-    </tr>
-    </thead>
-    <tbody class="phone-index">
+  <ul id="phone_list">
     <%= render @phones %>
-    </tbody>
-  </table>
+  </ul>
 </div>
 
 <div id="phone-modal" class="modal fade"></div>

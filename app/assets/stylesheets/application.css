@@ -14,11 +14,6 @@
  *= require_self
  */
 
-#search_area {
-    width: 70%;
-    margin: 2px auto;
-}
-
 #top_panel {
     position: fixed;
     top: 0;
@@ -26,8 +21,21 @@
     width: 100%;
     background-color: navy;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+#badge_area {
+    width: 15%;
+}
+
+#search_area {
+    width: 70%;
+    margin: 2px auto;
+}
+
+#login_area {
+    width: 15%;
 }
 
 #search_field {
@@ -55,22 +63,22 @@
 
 .container {
     margin-top: 200px;
+    background-color: #2E2F30;
+    padding: 15px;
+    height: 100%;
 }
 
 #title {
     color: white;
     text-align: center;
     margin: 5px auto;
+    padding: 15px;
 }
 
 #badge {
-    margin-left: 20px;
-    width: 15%;
+    width: 150px;
     height: 150px;
-}
-
-#login_area {
-    width: 20%;
+    margin-left: 15px;
 }
 
 

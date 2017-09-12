@@ -2,9 +2,10 @@ class PhonesController < ApplicationController
 
   def search
     if params[:term].blank?
-      @phones = Phone.all.order(created_at: :desc)
+      @phones = Phone.includes(:person).all.order('people.name asc')
     else
-      @phones = Phone.search(params[:term])
+      phones = Phone.search(params[:term])
+      @phones = phones.to_a.sort {|p1, p2| p1.person.name <=> p2.person.name}
     end
   end
 

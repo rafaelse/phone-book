@@ -4,6 +4,6 @@ $("ul.errors").html("")
         $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
     <% end %>
 <% else %>
-    $(".phone-index").html("<%= j render @phones %>")
+    $("#phone_list").html("<%= j render @phones %>")
     $("#phone-modal").modal("hide")
 <% end %>

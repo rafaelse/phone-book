@@ -8,4 +8,16 @@ class Phone < ApplicationRecord
                                           person: [:name]},
                   :using => {tsearch: {:dictionary => "portuguese"}},
                   :ignoring => :accents
+
+  def office
+    division.parent_division.parent_division
+  end
+
+  def department
+    division.parent_division
+  end
+
+  def sector
+    division
+  end
 end

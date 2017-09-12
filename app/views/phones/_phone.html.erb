@@ -1,8 +1,23 @@
-<tr>
-  <td><%= phone.person.name %></td>
-  <td><%= display_division_tree(phone.division) %></td>
-  <td><%= phone.ddr %></td>
-  <td><%= phone.ramal %></td>
-  <td><%= link_to "Editar", edit_phone_path(phone), remote:true, class: "btn btn-default"%></td>
-  <td><%= link_to "Deletar", phone_delete_path(phone), remote: true, class: "btn btn-danger" %></td>
-</tr>
+<li class="phone_item">
+  <div class="phone_info">
+    <span class="phone_name"><%= phone.person.name %> </span>
+    <span class="phone_number"><%= phone.ddr %></span>
+    <span class="phone_branch"><%= phone.ramal %></span>
+  </div>
+  <div>
+    <ul class="division_tree">
+      <li><%= phone.office.name %> </li>
+      <ul>
+        <li><%= phone.department.name %>
+          <ul>
+            <li><%= phone.sector.name %></li>
+          </ul>
+        </li>
+      </ul>
+    </ul>
+  </div>
+  <div class="phone_buttons">
+    <td><%= link_to "Editar", edit_phone_path(phone), remote: true, class: "btn btn-default" %></td>
+    <td><%= link_to "Deletar", phone_delete_path(phone), remote: true, class: "btn btn-danger" %></td>
+  </div>
+</li>
