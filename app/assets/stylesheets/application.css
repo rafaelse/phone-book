@@ -19,10 +19,13 @@
     top: 0;
     height: 180px;
     width: 100%;
-    background-color: navy;
+    /*background-color: navy;*/
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    border-bottom: solid;
+    border-width: thick;
+    background-color: white;
 }
 
 #badge_area {
@@ -44,7 +47,7 @@
     font-size: large;
     position: relative;
     margin: 0px auto;
-    border-width: 0px;
+    border-width: 2px;
     border-radius: 5px;
 }
 
@@ -63,13 +66,11 @@
 
 .container {
     margin-top: 200px;
-    background-color: #2E2F30;
     padding: 15px;
     height: 100%;
 }
 
 #title {
-    color: white;
     text-align: center;
     margin: 5px auto;
     padding: 15px;
