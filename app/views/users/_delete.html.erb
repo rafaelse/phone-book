@@ -1,0 +1,19 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title"><%= t 'view.user.header_delete' %></h3>
+    </div>
+    <div class="modal-body">
+      <% if @user.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <ul class="errors"></ul>
+          </div>
+      <% end %>
+      <%= t 'view.user.delete.confirmation_message' %>
+      <div class="modal-footer">
+        <%= link_to (t 'view.user.delete.confirmation_yes'), user_path(@user), method: :delete, remote: true, class: "btn btn-danger" %>
+        <%= link_to "Não", "#", class: "btn btn-default", data: {dismiss: "modal"} %>
+      </div>
+    </div>
+  </div>
+</div>

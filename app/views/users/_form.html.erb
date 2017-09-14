@@ -31,7 +31,12 @@
       <span class="help-block"><%= t 'view.user.form.admin_warn' %></span>
     </div>
 
+    <hr style="border-color: black"/>
+
     <div class="actions">
-      <%= f.submit "Cadastrar Usuário", class: 'btn btn-success' %>
+      <button type="submit" class="btn btn-success btn-lg">
+        <span class="glyphicon glyphicon-ok"></span>
+        <%= t 'view.user.form.save_user' %>
+      </button>
     </div>
 <% end %>

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :users
   get 'phones/search'
   root to: 'phones#search'
 
@@ -9,6 +8,10 @@ Rails.application.routes.draw do
 
   resources :phones, except: :index do
     get 'delete'
+  end
+
+  resources :users, except: :show do
+    get 'delete', on: :member
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

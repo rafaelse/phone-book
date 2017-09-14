@@ -5,9 +5,11 @@ pt:
   destroy: 'Excluir'
   'true': 'Sim'
   'false': 'Não'
+
   exceptions:
     user:
       last_admin: 'Não é permitido deletar o último administrador'
+
   activerecord:
     attributes:
       user:
@@ -29,9 +31,25 @@ pt:
               taken: 'já existe'
             password_confirmation:
               confirmation: 'deve ser preenchida ou está errada'
+
   view:
     user:
       form:
         admin_warn: 'O Administrador pode gerenciar outros usuários'
+        save_user: 'Salvar usuário'
       header_new: 'Cadastro de Usuário'
       header_edit: 'Alteração de Usuário'
+      header_index: 'Usuários'
+      header_delete: 'Exclusão de Usuário'
+      delete:
+        confirmation_message: 'Deseja realmente excluir este usuário?'
+        confirmation_yes: 'Sim, excluir usuário'
+
+  controller:
+    user:
+      create:
+        ok: 'O usuário foi criado com sucesso'
+      update:
+        ok: 'O usuário foi atualizado com sucesso'
+      delete:
+        ok: 'O usuário foi excluído com sucesso'

@@ -1,6 +1,8 @@
-<h1><%= t 'view.user.header_edit'%></h1>
+<div class="well">
+  <h1><%= t 'view.user.header_edit' %></h1>
 
-<%= render 'form', user: @user %>
+  <%= render 'form', user: @user %>
 
-<%= link_with_icon (t 'back'), users_path, "glyphicon-chevron-left",
-                   {class: "btn btn-default", style: "margin-top: 2px"}  %>
+  <%= link_with_icon (t 'back'), users_path, "glyphicon-chevron-left",
+                     {class: "btn btn-default", style: "margin-top: 2px"} %>
+</div>

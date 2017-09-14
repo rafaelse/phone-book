@@ -1,0 +1,10 @@
+<tr>
+  <td><%= user.name %></td>
+  <td><%= t user.admin %></td>
+  <td>
+    <%= link_with_icon((t 'edit'), edit_user_path(user), 'glyphicon-edit', {class: 'btn btn-primary'}) %>
+  </td>
+  <td>
+    <%= link_with_icon((t 'destroy'), delete_user_path(user), 'glyphicon-trash', {'data-remote' => true, class: 'btn btn-danger'}) %>
+  </td>
+</tr>

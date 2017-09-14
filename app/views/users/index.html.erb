@@ -1,4 +1,6 @@
-<h1>Users</h1>
+<h1><%= t 'view.user.header_index' %></h1>
+
+<%= link_with_icon (t 'new'), new_user_path, 'glyphicon-plus', {class: 'btn btn-default btn-lg'} %>
 
 <div class="table-responsive">
   <table class="table table-hover">
@@ -10,27 +12,10 @@
     </tr>
     </thead>
 
-    <tbody>
-    <% @users.each do |user| %>
-        <tr>
-          <td><%= user.name %></td>
-          <td><%= t user.admin %></td>
-          <td>
-            <%= link_with_icon((t 'edit'), edit_user_path(user), 'glyphicon-edit', {class: 'btn btn-primary'}) %>
-          </td>
-          <td>
-            <%= link_with_icon((t 'destroy'), user_path(user), 'glyphicon-minus',
-                               {'data-method' => :delete,
-                                class: 'btn btn-danger',
-                                data: {confirm: 'Tem certeza?'}}) %>
-          </td>
-        </tr>
-    <% end %>
+    <tbody id="user_rows">
+    <%= render @users %>
     </tbody>
   </table>
 </div>
 
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+<div class="modal fade" id="user_modal" role="dialog"></div>
