@@ -9,21 +9,11 @@
 </head>
 
 <body>
-<div id="top_panel">
-  <div id="badge_area">
-    <%= image_tag "BrasaoJaboticabal.svg.png", id: "badge" %>
+  <%= render 'layouts/header' %>
+
+  <div class="container">
+    <%= render 'layouts/messages' %>
+    <%= yield %>
   </div>
-  <div id="search_area">
-    <h1 id="title">PMJ - Lista Telefônica</h1>
-    <%= form_for :search, method: :get, url: phones_search_path do |form| %>
-        <%= text_field_tag 'term', params[:term], placeholder: "Pesquise por telefone, pessoa, ou divisão", id: 'search_field', autofocus: true %>
-        <%= submit_tag "Pesquisar", name: nil, id: "search_button" %>
-    <% end %>
-  </div>
-  <div id="login_area"></div>
-</div>
-<div class="container">
-  <%= yield %>
-</div>
 </body>
 </html>

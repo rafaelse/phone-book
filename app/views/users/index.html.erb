@@ -1,28 +1,35 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Users</h1>
 
-<table>
-  <thead>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
     <tr>
-      <th>Name</th>
-      <th>Admin</th>
-      <th colspan="3"></th>
+      <th><%= User.human_attribute_name('name') %></th>
+      <th><%= User.human_attribute_name('admin') %></th>
+      <th colspan="2"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.admin %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= t user.admin %></td>
+          <td>
+            <%= link_with_icon((t 'edit'), edit_user_path(user), 'glyphicon-edit', {class: 'btn btn-primary'}) %>
+          </td>
+          <td>
+            <%= link_with_icon((t 'destroy'), user_path(user), 'glyphicon-minus',
+                               {'data-method' => :delete,
+                                class: 'btn btn-danger',
+                                data: {confirm: 'Tem certeza?'}}) %>
+          </td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
+
 
 <br>
 

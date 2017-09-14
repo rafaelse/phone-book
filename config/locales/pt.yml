@@ -1,11 +1,37 @@
 pt:
+  back: 'Voltar'
+  new: 'Novo'
+  edit: 'Editar'
+  destroy: 'Excluir'
+  'true': 'Sim'
+  'false': 'Não'
+  exceptions:
+    user:
+      last_admin: 'Não é permitido deletar o último administrador'
   activerecord:
+    attributes:
+      user:
+        password: 'Senha'
+        password_confirmation: 'Confirmação de Senha'
+        name: 'Nome'
+        admin: 'Administrador?'
     errors:
       models:
         user:
           attributes:
             password:
-              blank:
-                one: "deve ser informada"
-                other: "devem ser informadas"
-                many: "devem ser informadas"
+              blank: 'deve ser informada'
+              too_short: 'deve ter entre 6 e 20 caracteres'
+            name:
+              blank: 'deve ser informado'
+              too_short: 'deve ter no mínimo 3 caracteres'
+              invalid_format: "deve começar com letra, pode incluir . ou _ entre caracteres, mas não pode conter espaços"
+              taken: 'já existe'
+            password_confirmation:
+              confirmation: 'deve ser preenchida ou está errada'
+  view:
+    user:
+      form:
+        admin_warn: 'O Administrador pode gerenciar outros usuários'
+      header_new: 'Cadastro de Usuário'
+      header_edit: 'Alteração de Usuário'
