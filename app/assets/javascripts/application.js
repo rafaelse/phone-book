@@ -15,3 +15,18 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+
+$(document).ready(function () {
+    var navbar = $(".navbar"),
+        fixedNavbar = "navbar-fixed-top",
+        headerHeight = $(".header").height();
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > headerHeight) {
+            navbar.addClass(fixedNavbar);
+        } else {
+            navbar.removeClass(fixedNavbar);
+        }
+    });
+});
+

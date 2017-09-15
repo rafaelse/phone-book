@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+
 $ ->
   $(document).on 'change', '#sec_select', (evt) ->
     $.ajax 'update_depts',
@@ -27,3 +28,4 @@ $ ->
         console.log("AJAX Error: #{textStatus}")
       success: (data, textStatus, jqXHR) ->
         console.log("Dynamic country select OK!")
+
