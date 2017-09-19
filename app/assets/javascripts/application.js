@@ -12,21 +12,23 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 //= require bootstrap
 
-$(document).ready(function () {
-    var navbar = $(".navbar"),
-        fixedNavbar = "navbar-fixed-top",
-        headerHeight = $(".header").height();
-
-    $(window).scroll(function () {
-        if ($(window).scrollTop() > headerHeight) {
-            navbar.addClass(fixedNavbar);
-        } else {
-            navbar.removeClass(fixedNavbar);
-        }
-    });
-});
+// $(document).ready(function () {
+//     var navbar = $(".navbar"),
+//         fixedNavbar = "navbar-fixed-top",
+//         headerHeight = $(".header").height(),
+//         navbarHeight = $('.navbar').outerHeight(true);
+//
+//     $(window).scroll(function () {
+//         if ($(window).scrollTop() > headerHeight) {
+//             navbar.addClass(fixedNavbar);
+//             $('#main_content').css('padding-top', navbarHeight);
+//         } else {
+//             navbar.removeClass(fixedNavbar);
+//             $('#main_content').css('padding-top', 0);
+//         }
+//     });
+// });
 

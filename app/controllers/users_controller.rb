@@ -57,6 +57,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
+      format.js {flash[:notice] = (t 'controller.user.delete.ok')}
       format.html {redirect_to users_url, notice: (t 'controller.user.delete.ok')}
       format.json {head :no_content}
     end

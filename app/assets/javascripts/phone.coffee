@@ -5,7 +5,7 @@
 
 $ ->
   $(document).on 'change', '#sec_select', (evt) ->
-    $.ajax 'update_depts',
+    $.ajax 'phones/update_depts',
       type: 'GET'
       dataType: 'script'
       data: {
@@ -18,7 +18,7 @@ $ ->
 
 $ ->
   $(document).on 'change', '#dept_select', (evt) ->
-    $.ajax 'update_sectors',
+    $.ajax '/phones/update_sectors',
       type: 'GET'
       dataType: 'script'
       data: {
