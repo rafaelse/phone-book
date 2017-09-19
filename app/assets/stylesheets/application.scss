@@ -26,12 +26,13 @@
 
 .affix-top .navbar-brand {
   position: absolute;
+  visibility: hidden;
   opacity: 0;
-  display: none;
 }
 
 .affix .navbar-brand {
   position: static;
+  visibility: visible;
   opacity: 1;
   transition: opacity 500ms linear;
 }

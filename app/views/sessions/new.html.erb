@@ -1,0 +1,23 @@
+<div class="panel panel-default" style="width: 60%; margin: auto">
+
+  <div class="panel-heading">
+    <h2>Login</h2>
+  </div>
+
+  <div class="panel-body">
+    <%= form_tag  do %>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input id="username" type="text" class="form-control" name="name" placeholder="<%= t 'activerecord.attributes.user.name' %>">
+        </div>
+        <br>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          <input id="password" type="password" class="form-control" name="password" placeholder="<%= t 'activerecord.attributes.user.password' %>">
+        </div>
+        <br>
+
+        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+    <% end %>
+  </div>
+</div>

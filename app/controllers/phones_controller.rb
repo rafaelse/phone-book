@@ -1,5 +1,7 @@
 class PhonesController < ApplicationController
 
+  skip_before_action :authorize, only: [:search]
+
   def search
     if params[:term].blank?
       @phones = Phone.includes(:person).all.order('people.name asc')

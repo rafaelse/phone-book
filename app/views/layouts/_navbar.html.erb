@@ -16,11 +16,17 @@
     <div class="collapse navbar-collapse" id="myNavbar">
 
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_with_icon (t 'navbar.add_phone'), new_phone_path, 'glyphicon glyphicon-plus', {style: "btn btn-default navbar-btn", 'data-remote' => true} %>
-        </li>
-        <li><a href="<%= users_path %>"><span class="glyphicon glyphicon-user"></span><%= t 'navbar.manage_users' %></a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span><%= t 'navbar.login' %></a></li>
+        <% if user_signed_in? %>
+            <li>
+              <%= link_with_icon (t 'navbar.add_phone'), new_phone_path, 'glyphicon glyphicon-plus', { 'data-remote' => true} %>
+            </li>
+        <% end %>
+        <% if user_signed_in? and current_user.admin %>
+            <li>
+              <%= link_with_icon (t 'navbar.manage_users'), users_path, 'glyphicon glyphicon-user' %>
+            </li>
+        <% end %>
+        <li><a href="<%= login_url %>"><span class="glyphicon glyphicon-log-in"></span><%= t 'navbar.login' %></a></li>
       </ul>
 
       <form method="get" action="<%= phones_search_url %>" class="navbar-form">

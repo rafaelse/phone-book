@@ -12,26 +12,13 @@ module ApplicationHelper
     end
   end
 
-  private
+  def user_signed_in?
+    !session[:user_id].nil?
+  end
 
-  def construct_tree (division)
-    division_stack = []
-    until division == nil
-      division_stack.push(division)
-      division = division.parent_division
+  def current_user
+    if user_signed_in?
+      User.find(session[:user_id])
     end
-    level = 1
-    tree = ""
-    until division_stack.empty?
-      tree += division_stack.pop.name
-      unless division_stack.empty?
-        tree += "\n"
-        tree += "    " * level
-        tree += "↳"
-      end
-      level += 1
-    end
-
-    tree
   end
 end
