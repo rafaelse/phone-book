@@ -9,7 +9,7 @@
       </button>
       <a class="navbar-brand" href="<%= root_url %>">
         <%= image_tag "BrasaoJaboticabal.svg.png", style: "width: 40px; display: inline-block; margin-top: -10px " %>
-        Lista Telefônica
+        <%= t 'phone_book' %>
       </a>
     </div>
 
@@ -17,13 +17,10 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <%= link_with_icon 'Adicionar Telefone', new_phone_path, 'glyphicon glyphicon-plus', {style: "btn btn-default navbar-btn", 'data-remote' => true} %>
-          <!--<form method="get" action="<%= new_phone_url %>" data-remote="true">-->
-            <!--<button class="btn btn-default navbar-btn" style="margin-left: 5px">Adicionar Telefone</button>-->
-          <!--</form>-->
+          <%= link_with_icon (t 'navbar.add_phone'), new_phone_path, 'glyphicon glyphicon-plus', {style: "btn btn-default navbar-btn", 'data-remote' => true} %>
         </li>
-        <li><a href="<%= users_path %>"><span class="glyphicon glyphicon-user"></span>Gerenciar Usuários</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+        <li><a href="<%= users_path %>"><span class="glyphicon glyphicon-user"></span><%= t 'navbar.manage_users' %></a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span><%= t 'navbar.login' %></a></li>
       </ul>
 
       <form method="get" action="<%= phones_search_url %>" class="navbar-form">

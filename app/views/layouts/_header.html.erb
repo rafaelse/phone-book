@@ -9,11 +9,14 @@
         </div>
       </td>
       <td>
-        <span style="font-size: 14px; font-weight: bold;"></span>
+        <span style="font-size: 2vmin; font-weight: bold;">
+          <%= t 'phone_book' %>
+        </span>
         <br/>
-        <span style="font-size: 26px; font-weight: bold;">Prefeitura Municipal de Jaboticabal</span><br/>
-        <span style="font-size: 22px;">
-          Lista Telefônica
+        <span style="font-size: 3vmin; font-weight: bold;"><%= t 'city_hall' %></span>
+        <br/>
+        <span style="font-size: 2.5vmin;">
+          <%= yield :header_title %>
         </span>
       </td>
     </tr>

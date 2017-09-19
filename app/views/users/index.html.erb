@@ -1,4 +1,6 @@
-<h1><%= t 'view.user.header_index' %></h1>
+<%= content_for :header_title, (t 'view.user.header') %>
+
+<h2><%= t 'view.user.header_index' %></h2>
 
 <%= link_with_icon (t 'new'), new_user_path, 'glyphicon-plus', {class: 'btn btn-default btn-lg'} %>
 

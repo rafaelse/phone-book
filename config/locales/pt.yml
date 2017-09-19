@@ -5,6 +5,8 @@ pt:
   destroy: 'Excluir'
   'true': 'Sim'
   'false': 'Não'
+  city_hall: 'Prefeitura Municipal de Jaboticabal'
+  phone_book: 'Lista Telefônica'
 
   exceptions:
     user:
@@ -41,6 +43,7 @@ pt:
       header_edit: 'Alteração de Usuário'
       header_index: 'Usuários'
       header_delete: 'Exclusão de Usuário'
+      header: 'Gerenciamento de Usuários'
       delete:
         confirmation_message: 'Deseja realmente excluir este usuário?'
         confirmation_yes: 'Sim, excluir usuário'
@@ -53,3 +56,7 @@ pt:
         ok: 'O usuário foi atualizado com sucesso'
       delete:
         ok: 'O usuário foi excluído com sucesso'
+  navbar:
+    manage_users: 'Gerenciar Usuários'
+    add_phone: 'Adicionar Telefone'
+    login: 'Login'
