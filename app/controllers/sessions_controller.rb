@@ -8,9 +8,10 @@ class SessionsController < ApplicationController
     user = User.find_by(name: params[:name])
     if user.try(:authenticate, params[:password])
       log_in user
-      redirect_to users_url, notice: 'Login efetuado com sucesso'
+      redirect_to root_url, notice: 'Login efetuado com sucesso'
     else
-      redirect_to login_url, alert: 'Usuário ou senha inválidos'
+      flash.now[:alert] = 'Usuário ou senha inválidos'
+      render :new
     end
   end
 
