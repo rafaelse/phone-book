@@ -56,7 +56,16 @@ pt:
         ok: 'O usuário foi atualizado com sucesso'
       delete:
         ok: 'O usuário foi excluído com sucesso'
+    session:
+      login_success: 'Login efetuado com sucesso'
+      login_fail: 'Usuário ou senha inválidos'
+      logout_success: 'Logout efetuado com sucesso'
+    concern:
+      user_authorization:
+        login_required: 'Por favor, entre com usuário e senha'
+        restricted_to_admins: 'Área restrita à administradores'
   navbar:
     manage_users: 'Gerenciar Usuários'
     add_phone: 'Adicionar Telefone'
     login: 'Login'
+    logout: 'Sair'

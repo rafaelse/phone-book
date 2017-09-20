@@ -8,15 +8,15 @@ class SessionsController < ApplicationController
     user = User.find_by(name: params[:name])
     if user.try(:authenticate, params[:password])
       log_in user
-      redirect_to root_url, notice: 'Login efetuado com sucesso'
+      redirect_to root_url, notice: (t 'controller.session.login_success')
     else
-      flash.now[:alert] = 'Usuário ou senha inválidos'
+      flash.now[:alert] = (t 'controller.session.login_fail')
       render :new
     end
   end
 
   def destroy
     log_out
-    redirect_to root_url, notice: "Logged out"
+    redirect_to root_url, notice: (t 'controller.session.logout_success')
   end
 end
