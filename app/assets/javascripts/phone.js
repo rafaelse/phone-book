@@ -1,4 +1,10 @@
+function clearFields(selectors){
+    selectors.forEach(function (t) { $(t).val("") });
+}
+
 $(function () {
+
+
         $('#person_field').autocomplete({
             minLength: 2,
             source: '/people/search',
@@ -51,6 +57,7 @@ $(function () {
             },
             search: function () {
                 $('#telephone_dept_id').val("");
+                $('#office_field').prop('disabled', false);
                 return true;
             },
             focus: function (event, ui) {
@@ -60,6 +67,7 @@ $(function () {
             select: function (event, ui) {
                 $('#dept_field').val(ui.item.name);
                 $('#telephone_dept_id').val(ui.item.id);
+                $('#office_field').prop('disabled', true);
                 return false;
             }
         }).data("uiAutocomplete")._renderItem = function (ul, item) {
@@ -76,6 +84,7 @@ $(function () {
             },
             search: function () {
                 $('#telephone_sector_id').val("");
+                $('#dept_field').prop('disabled', false);
                 return true;
             },
             focus: function (event, ui) {
@@ -85,6 +94,7 @@ $(function () {
             select: function (event, ui) {
                 $('#sector_field').val(ui.item.name);
                 $('#telephone_sector_id').val(ui.item.id);
+                $('#dept_field').prop('disabled', true);
                 return false;
             }
         }).data("uiAutocomplete")._renderItem = function (ul, item) {
@@ -94,3 +104,8 @@ $(function () {
         };
     }
 );
+
+$(document).ready(function () {
+    $('.phone-masked').mask('(00) 0000 0000');
+    $('.branch-masked').mask('0000');
+});

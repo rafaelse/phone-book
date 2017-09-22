@@ -13,23 +13,7 @@
 //= require jquery
 //= require jquery-ui/widgets/autocomplete
 //= require jquery_ujs
-//= require_tree .
 //= require bootstrap
-
-// $(document).ready(function () {
-//     var navbar = $(".navbar"),
-//         fixedNavbar = "navbar-fixed-top",
-//         headerHeight = $(".header").height(),
-//         navbarHeight = $('.navbar').outerHeight(true);
-//
-//     $(window).scroll(function () {
-//         if ($(window).scrollTop() > headerHeight) {
-//             navbar.addClass(fixedNavbar);
-//             $('#main_content').css('padding-top', navbarHeight);
-//         } else {
-//             navbar.removeClass(fixedNavbar);
-//             $('#main_content').css('padding-top', 0);
-//         }
-//     });
-// });
+//= require jquery.mask
+//= require_tree .
 

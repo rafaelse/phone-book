@@ -35,6 +35,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pg_search'
 # Installs bootstrap
 gem 'bootstrap-sass', '~> 3.3.5.1'
+# Jquery input masks
+gem 'jquery_mask_rails', '~> 0.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
