@@ -17,7 +17,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
             <li>
-              <%= link_with_icon (t 'navbar.add_phone'), new_phone_path, 'glyphicon glyphicon-plus', {'data-remote' => true} %>
+              <%= link_with_icon (t 'navbar.add_phone'), new_phone_path, 'glyphicon glyphicon-plus' %>
             </li>
             <% if current_user.admin? %>
                 <li>

@@ -4,19 +4,14 @@ class PhonesController < ApplicationController
 
   def search
     if params[:term].blank?
-      @phones = Phone.includes(:person).all.order('people.name asc')
+      return @phones = Phone.includes(:person).all.order('people.name asc')
     else
-      @phones = Phone.search(params[:term])
-      #@phones = phones.to_a.sort {|p1, p2| p1.person.name <=> p2.person.name}
+      return @phones = Phone.search(params[:term])
     end
   end
 
   def new
     @phone = Phone.new
-    @secretaries = Division.secretaries
-    @departments = Division.departments(@secretaries.first.id)
-    @sectors = Division.sectors(@departments.first.id)
-    @people = Person.ordered_people
   end
 
   def create
@@ -36,11 +31,11 @@ class PhonesController < ApplicationController
   end
 
   def update_depts
-    @departments = Division.departments(params[:sec_id])
+    @departments = Division.children_divisions(params[:sec_id])
   end
 
   def update_sectors
-    @sectors = Division.sectors(params[:dept_id])
+    @sectors = Division.children_divisions(params[:dept_id])
   end
 
   private

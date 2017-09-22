@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'phones#search'
+
   get 'phones/search'
   get 'phones', to: 'phones#search'
 
@@ -12,6 +13,11 @@ Rails.application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
+
+  get 'people/search'
+
+  get 'divisions/search', to: 'divisions#root_search'
+  get 'divisions/:id/search', to: 'divisions#children_search'
 
   resources :phones, except: :index do
     get 'delete'

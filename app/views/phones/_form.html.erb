@@ -4,20 +4,24 @@
         <div class="modal-body">
           <ul class="errors"></ul>
           <div class="form-group">
-            <%= f.label :person_id, 'Pessoa', class: "control-label" %>
-            <%= f.collection_select :person_id, @people, :id, :name,{},  {class: "form-control"} %>
+            <%= f.label :person_name, 'Pessoa', class: "control-label" %>
+            <%= f.text_field :person_name, id: 'person_field', class: 'form-control' %>
+            <%= f.hidden_field :person_id %>
           </div>
           <div class="form-group">
             <%= f.label :sec_id, 'Secretaria', class: "control-label" %>
-            <%= f.collection_select :sec_id, @secretaries, :id, :name, {}, {id: 'sec_select', class: 'form-control'} %>
+            <%= f.text_field :office, id: 'office_field', class: 'form-control' %>
+            <%= f.hidden_field :office_id %>
           </div>
           <div class="form-group">
             <%= f.label :dept_id, 'Departamento', class: "control-label" %>
-            <%= f.collection_select :dept_id, @departments, :id, :name, {}, {id: 'dept_select', class: 'form-control'} %>
+            <%= f.text_field :dept, id: 'dept_field', class: 'form-control' %>
+            <%= f.hidden_field :dept_id %>
           </div>
           <div class="form-group">
             <%= f.label :sector_id, 'Setor', class: "control-label" %>
-            <%= f.collection_select :sector_id, @sectors, :id, :name, {}, {id: 'sector_select', class: 'form-control'} %>
+            <%= f.text_field :sector, id: 'sector_field', class: 'form-control' %>
+            <%= f.hidden_field :sector_id %>
           </div>
           <div class="form-group">
             <%= f.label :ddr, 'DDR', class: "control-label" %>
