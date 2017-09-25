@@ -1,9 +1,10 @@
-function clearFields(selectors){
-    selectors.forEach(function (t) { $(t).val("") });
+function clearFields(selectors) {
+    selectors.forEach(function (t) {
+        $(t).val("")
+    });
 }
 
 $(function () {
-
 
         $('#person_field').autocomplete({
             minLength: 2,
