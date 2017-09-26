@@ -15,9 +15,14 @@ class PhonesController < ApplicationController
   end
 
   def create
-    @phones = Phone.all.order(created_at: :desc)
     @phone = construct_phone
-    @phone.save
+    respond_to do |format|
+      if @phone.save
+        format.html {redirect_to new_phone_url, notice: 'Telefone cadastrado com sucesso'}
+      else
+        format.html {render :new}
+      end
+    end
   end
 
   def delete
@@ -45,8 +50,18 @@ class PhonesController < ApplicationController
   end
 
   def construct_phone
-    sector = Division.find(tel_params[:sector_id])
-    person = Person.find(tel_params[:person_id])
-    Phone.new(ddr: tel_params[:ddr], ramal: tel_params[:ramal], division: sector, person: person)
+    phone = Phone.new(ddr: tel_params[:ddr], ramal: tel_params[:ramal])
+    phone.person = !tel_params[:person_id].blank? ? Person.find(tel_params[:person_id]) : Person.new(name: tel_params[:person_name])
+    phone.division = construct_division
+    return phone
+  end
+
+  def construct_division
+    sector = !tel_params[:sector_id].blank? ? Division.find(tel_params[:sector_id]) : Division.new(name: tel_params[:sector])
+    dept = !tel_params[:dept_id].blank? ? Division.find(tel_params[:dept_id]) : Division.new(name: tel_params[:dept])
+    office = !tel_params[:office_id].blank? ? Division.find(tel_params[:office_id]) : Division.new(name: tel_params[:office])
+    dept.parent_division = office
+    sector.parent_division = dept
+    return sector
   end
 end

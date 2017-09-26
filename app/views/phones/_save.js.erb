@@ -1,9 +1,19 @@
 $("ul.errors").html("")
 <% if @phone.errors.any? %>
-    <% @phone.errors.full_messages.each do |message| %>
-        $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
-    <% end %>
+  <% @phone.errors.full_messages.each do |message| %>
+    $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+  <% end %>
 <% else %>
-    $("#phone_list").html("<%= j render @phones %>")
-    $("#phone-modal").modal("hide")
+  <% if flash.now[:notice] %>
+    $('#messages').append($("<div class='alert alert-info'> </div>").html("<%= flash.now[:notice] %>"))
+  <% end %>
+
+  reset_form();
 <% end %>
+
+function reset_form() {
+    $('form :input').val('');
+    $('form :input').prop('disabled', false);
+
+    $('#person_field').focus();
+}

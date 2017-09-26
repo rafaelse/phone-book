@@ -19,6 +19,11 @@ pt:
         password_confirmation: 'Confirmação de Senha'
         name: 'Nome'
         admin: 'Administrador?'
+      phone:
+        ddr: 'DDR'
+        ramal: 'Ramal'
+        person: 'Pessoa'
+        division: 'Divisão'
     errors:
       models:
         user:
@@ -33,6 +38,19 @@ pt:
               taken: 'já existe'
             password_confirmation:
               confirmation: 'deve ser preenchida ou está errada'
+        phone:
+          attributes:
+            person:
+              invalid: 'deve ser informada e ter no mínimo 2 caracteres'
+            division:
+              invalid: 'secretaria, departamento e setor devem ser informados'
+            ddr:
+              invalid: 'deve respeitar o formato (XX) XXXX XXXX'
+            ramal:
+              invalid: 'deve respeitar o formato XXXX'
+              blank: 'deve ser informado'
+
+
 
   view:
     user:

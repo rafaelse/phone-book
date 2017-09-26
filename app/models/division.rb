@@ -5,6 +5,8 @@ class Division < ApplicationRecord
   belongs_to :parent_division, optional: true, class_name: 'Division', foreign_key: 'parent_id'
   has_many :subdivisions, class_name: 'Division', foreign_key: 'parent_id', dependent: :destroy
 
+  validates :name, presence: true, length: {minimum: 3}
+
   pg_search_scope :search,
                   :against => [:name],
                   :using => {tsearch: {:dictionary => "portuguese", :prefix => true}},
