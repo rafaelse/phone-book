@@ -3,7 +3,7 @@ $(function () {
             minLength: 2,
             source: '/people/search',
             search: function () {
-                $('#telephone_person_id').val("");
+                $('#phone_person_attributes_id').val("");
                 return true;
             },
             focus: function (event, ui) {
@@ -12,7 +12,7 @@ $(function () {
             },
             select: function (event, ui) {
                 $('#person_field').val(ui.item.name);
-                $('#telephone_person_id').val(ui.item.id);
+                $('#phone_person_attributes_id').val(ui.item.id);
                 return false;
             }
         }).data("uiAutocomplete")._renderItem = function (ul, item) {
@@ -25,7 +25,7 @@ $(function () {
             minLength: 2,
             source: '/divisions/search',
             search: function () {
-                $('#telephone_office_id').val("");
+                $('#phone_division_attributes_parent_division_attributes_parent_division_attributes_id').val("");
                 return true;
             },
             focus: function (event, ui) {
@@ -34,7 +34,7 @@ $(function () {
             },
             select: function (event, ui) {
                 $('#office_field').val(ui.item.name);
-                $('#telephone_office_id').val(ui.item.id);
+                $('#phone_division_attributes_parent_division_attributes_parent_division_attributes_id').val(ui.item.id);
                 return false;
             }
         }).data("uiAutocomplete")._renderItem = function (ul, item) {
@@ -46,11 +46,11 @@ $(function () {
         $('#dept_field').autocomplete({
             minLength: 2,
             source: function (request, response) {
-                var office_id = $('#telephone_office_id').val()
+                var office_id = $('#phone_division_attributes_parent_division_attributes_parent_division_attributes_id').val();
                 $.getJSON("/divisions/" + office_id + "/search", {term: request.term}, response);
             },
             search: function () {
-                $('#telephone_dept_id').val("");
+                $('#phone_division_attributes_parent_division_attributes_id').val("");
                 $('#office_field').prop('disabled', false);
                 return true;
             },
@@ -60,7 +60,7 @@ $(function () {
             },
             select: function (event, ui) {
                 $('#dept_field').val(ui.item.name);
-                $('#telephone_dept_id').val(ui.item.id);
+                $('#phone_division_attributes_parent_division_attributes_id').val(ui.item.id);
                 $('#office_field').prop('disabled', true);
                 return false;
             }
@@ -73,11 +73,11 @@ $(function () {
         $('#sector_field').autocomplete({
             minLength: 2,
             source: function (request, response) {
-                var dept_id = $('#telephone_dept_id').val()
+                var dept_id = $('#phone_division_attributes_parent_division_attributes_id').val()
                 $.getJSON("/divisions/" + dept_id + "/search", {term: request.term}, response);
             },
             search: function () {
-                $('#telephone_sector_id').val("");
+                $('#phone_division_attributes_id').val("");
                 $('#dept_field').prop('disabled', false);
                 return true;
             },
@@ -87,7 +87,7 @@ $(function () {
             },
             select: function (event, ui) {
                 $('#sector_field').val(ui.item.name);
-                $('#telephone_sector_id').val(ui.item.id);
+                $('#phone_division_attributes_id').val(ui.item.id);
                 $('#dept_field').prop('disabled', true);
                 return false;
             }

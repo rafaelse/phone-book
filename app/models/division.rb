@@ -3,9 +3,10 @@ class Division < ApplicationRecord
   has_many :phones
   has_many :people, through: :phones
   belongs_to :parent_division, optional: true, class_name: 'Division', foreign_key: 'parent_id'
+  accepts_nested_attributes_for :parent_division
   has_many :subdivisions, class_name: 'Division', foreign_key: 'parent_id', dependent: :destroy
 
-  validates :name, presence: true, length: {minimum: 3}
+  validates :name, presence: true
 
   pg_search_scope :search,
                   :against => [:name],
@@ -16,6 +17,13 @@ class Division < ApplicationRecord
 
   scope :root_divisions, -> {where(parent_id: nil).order(name: :asc)}
   scope :children_divisions, -> (parent_id)  {where(parent_id: parent_id).order(name: :asc)}
+
+  def parent_division_attributes=(attributes)
+    if attributes['id'].present?
+      self.parent_division = Division.find(attributes['id'])
+    end
+    super
+  end
 
   def self.root_search(term)
     Division.root_divisions.search(term)

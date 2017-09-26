@@ -24,15 +24,23 @@ pt:
         ramal: 'Ramal'
         person: 'Pessoa'
         division: 'Divisão'
+      division:
+        name: 'Setor'
+      division/parent_division:
+        name: 'Departamento'
+      division/parent_division/parent_division:
+        name: 'Secretaria'
+      person:
+        name: 'Pessoa'
     errors:
       models:
         user:
           attributes:
             password:
-              blank: 'deve ser informada'
+              blank: 'é campo obrigatório'
               too_short: 'deve ter entre 6 e 20 caracteres'
             name:
-              blank: 'deve ser informado'
+              blank: 'é campo obrigatório'
               too_short: 'deve ter no mínimo 3 caracteres'
               invalid_format: "deve começar com letra, pode incluir . ou _ entre caracteres, mas não pode conter espaços"
               taken: 'já existe'
@@ -48,9 +56,15 @@ pt:
               invalid: 'deve respeitar o formato (XX) XXXX XXXX'
             ramal:
               invalid: 'deve respeitar o formato XXXX'
-              blank: 'deve ser informado'
-
-
+              blank: 'é campo obrigatório'
+        division:
+          attributes:
+            name:
+              blank: 'é campo obrigatório'
+        person:
+          attributes:
+            name:
+              blank: 'é campo obrigatório'
 
   view:
     user:

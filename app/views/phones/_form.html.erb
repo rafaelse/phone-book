@@ -9,37 +9,48 @@
 <% end %>
 
 <div class="container">
-  <%= form_for :telephone, method: :post, url: phones_path, html: {style: "display: inline;", class: 'form-horizontal'} do |f| %>
+  <%= form_for @phone, html: {style: "display: inline;", class: 'form-horizontal'} do |f| %>
+
+      <%= f.fields_for :person do |person_form| %>
+          <div class="form-group">
+            <%= person_form.label :name, 'Pessoa:', class: "control-label col-sm-2" %>
+            <div class="col-sm-8">
+              <%= person_form.text_field :name, id: 'person_field', class: 'form-control', placeholder: 'Ex: Fulano Ciclano' %>
+            </div>
+            <%= person_form.hidden_field :id %>
+          </div>
+      <% end %>
+
+      <%= f.fields_for :division do |sector_form| %>
+          <%= sector_form.fields_for :parent_division do |dept_form| %>
+              <%= dept_form.fields_for :parent_division do |office_form| %>
+                  <div class="form-group">
+                    <%= office_form.label :name, 'Secretaria:', class: "control-label col-sm-2" %>
+                    <div class="col-sm-8">
+                      <%= office_form.text_field :name, id: 'office_field', class: 'form-control', placeholder: 'Ex: Secretaria de Administração' %>
+                    </div>
+                    <%= office_form.hidden_field :id %>
+                  </div>
+              <% end %>
+              <div class="form-group">
+                <%= dept_form.label :name, 'Departamento:', class: "control-label col-sm-2" %>
+                <div class="col-sm-8">
+                  <%= dept_form.text_field :name, id: 'dept_field', class: 'form-control', placeholder: 'Ex: Tecnologia da Informação' %>
+                </div>
+                <%= dept_form.hidden_field :id %>
+              </div>
+          <% end %>
+          <div class="form-group">
+            <%= sector_form.label :name, 'Setor:', class: "control-label col-sm-2" %>
+            <div class="col-sm-8">
+              <%= sector_form.text_field :name, id: 'sector_field', class: 'form-control', placeholder: 'Ex: Infraestrutura de Redes' %>
+            </div>
+            <%= sector_form.hidden_field :id %>
+          </div>
+      <% end %>
+
       <div class="form-group">
-        <%= f.label :person_name, 'Pessoa:', class: "control-label col-sm-2" %>
-        <div class="col-sm-8">
-          <%= f.text_field :person_name, id: 'person_field', class: 'form-control', placeholder: 'Ex: Fulano Ciclano' %>
-        </div>
-        <%= f.hidden_field :person_id %>
-      </div>
-      <div class="form-group">
-        <%= f.label :sec_id, 'Secretaria:', class: "control-label col-sm-2" %>
-        <div class="col-sm-8">
-          <%= f.text_field :office, id: 'office_field', class: 'form-control', placeholder: 'Ex: Secretaria de Administração' %>
-        </div>
-        <%= f.hidden_field :office_id %>
-      </div>
-      <div class="form-group">
-        <%= f.label :dept_id, 'Departamento:', class: "control-label col-sm-2" %>
-        <div class="col-sm-8">
-          <%= f.text_field :dept, id: 'dept_field', class: 'form-control', placeholder: 'Ex: Tecnologia da Informação' %>
-        </div>
-        <%= f.hidden_field :dept_id %>
-      </div>
-      <div class="form-group">
-        <%= f.label :sector_id, 'Setor:', class: "control-label col-sm-2" %>
-        <div class="col-sm-8">
-          <%= f.text_field :sector, id: 'sector_field', class: 'form-control', placeholder: 'Ex: Infraestrutura de Redes' %>
-        </div>
-        <%= f.hidden_field :sector_id %>
-      </div>
-      <div class="form-group">
-        <%= f.label :ddr, 'DDR:' , class: "control-label col-sm-2" %>
+        <%= f.label :ddr, 'DDR:', class: "control-label col-sm-2" %>
         <div class="col-sm-8">
           <%= f.text_field :ddr, id: 'ddr_field', class: "form-control phone-masked", placeholder: 'Ex: (16) 3209 3313' %>
         </div>
