@@ -1,8 +1,11 @@
-<div class="new-phone"></div>
+<% if @term.blank? %>
+    <p class="lead"><%= @phones.count %> telefone(s) foram encontrados</p>
+<% else %>
+    <p class="lead"><%= @phones.count %> telefone(s) foram encontrados para <strong><%= @term %></strong></p>
+<% end %>
 
-<ul id="phone_list">
+<div class="container">
   <%= render @phones %>
-</ul>
-
+</div>
 
 <div id="phone-modal" class="modal fade"></div>

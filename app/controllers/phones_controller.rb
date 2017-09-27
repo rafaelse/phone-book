@@ -3,6 +3,7 @@ class PhonesController < ApplicationController
   skip_before_action :authorize, only: [:search]
 
   def search
+    @term = params[:term]
     if params[:term].blank?
       return @phones = Phone.includes(:person).all.order('people.name asc')
     else
