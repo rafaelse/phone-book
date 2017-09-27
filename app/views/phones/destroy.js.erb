@@ -1,1 +1,10 @@
-<%= render 'save' %>
+$('.phone_count').html(parseInt($('.phone_count').text()) - 1)
+$('div#<%= @phone.id %>').remove()
+$('#phone-modal').modal('hide')
+
+<% if flash[:notice] %>
+  $('#messages').append($("<div class='alert alert-info'></div>").html("<%= flash[:notice] %>"))
+<% end %>
+<% if flash[:alert] %>
+  $('#messages').append($("<div class='alert alert-danger'></div>").html("<%= flash[:alert] %>"))
+<% end %>

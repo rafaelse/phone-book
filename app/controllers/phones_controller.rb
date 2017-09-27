@@ -1,13 +1,12 @@
 class PhonesController < ApplicationController
-
-  skip_before_action :authorize, only: [:search]
+  before_action :set_phone, only: [:show, :destroy, :delete]
+  before_action :load_phones, only: [:search]
+  skip_before_action :authorize
 
   def search
     @term = params[:term]
-    if params[:term].blank?
-      return @phones = Phone.includes(:person).all.order('people.name asc')
-    else
-      return @phones = Phone.search(params[:term])
+    if !params[:term].blank?
+      @phones = Phone.search(params[:term])
     end
   end
 
@@ -35,9 +34,13 @@ class PhonesController < ApplicationController
   end
 
   def destroy
-    @phones = Phone.all.order(created_at: :desc)
-    @phone = Phone.find(params[:id])
     @phone.destroy
+    respond_to do |format|
+      format.js {flash[:notice] = "Telefone excluído com sucesso"}
+    end
+  end
+
+  def show
   end
 
   private
@@ -45,7 +48,16 @@ class PhonesController < ApplicationController
   def phone_params
     params.require(:phone).permit(:ddr, :ramal, person_attributes: [:id, :name],
                                   division_attributes: [:id, :name,
-                                             parent_division_attributes: [:id, :name,
-                                                               parent_division_attributes: [:id, :name]]])
+                                                        parent_division_attributes: [:id, :name,
+                                                                                     parent_division_attributes: [:id, :name]]])
+  end
+
+  def set_phone
+    @phone = Phone.find(params[:id]) if params[:id].present?
+    @phone = Phone.find(params[:phone_id]) if params[:phone_id].present?
+  end
+
+  def load_phones
+    @phones = Phone.includes(:person).all.order('people.name asc')
   end
 end

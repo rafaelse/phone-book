@@ -21,7 +21,7 @@
   z-index: 9999 !important;
 }
 
-.affix + #main_content {
+.affix + #main_content, .affix + #main_content .modal {
   padding-top: 71px;
 }
 
@@ -89,6 +89,6 @@
 }
 
 .card:hover {
-  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.2);
   border: none 0px transparent !important;
 }

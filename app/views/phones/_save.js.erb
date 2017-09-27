@@ -4,16 +4,6 @@ $("ul.errors").html("")
     $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
   <% end %>
 <% else %>
-  <% if flash.now[:notice] %>
-    $('#messages').append($("<div class='alert alert-info'> </div>").html("<%= flash.now[:notice] %>"))
-  <% end %>
-
-  reset_form();
+  $('#phone_list').html('<%= j render @phones %>')
+  $('#phone-modal').modal('hide')
 <% end %>
-
-function reset_form() {
-    $('form :input').val('');
-    $('form :input').prop('disabled', false);
-
-    $('#person_field').focus();
-}

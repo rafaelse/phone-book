@@ -2,9 +2,45 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title">V</h4>
+      <h4 class="modal-title">Telefone</h4>
     </div>
     <div class="modal-body">
+      <div class="media">
+        <div class="media-left media-middle">
+          <%= image_tag 'person.png', width: 60 %>
+        </div>
+        <div class="media-body">
+          <h2><%= @phone.person.name %></h2>
+        </div>
+      </div>
+      <div class="media">
+        <div class="media-left media-middle">
+          <%= image_tag 'phone.jpg', width: 60 %>
+        </div>
+        <div class="media-body">
+          <h3><%= @phone.ddr %></h3>
+          <h4><%= @phone.ramal %></h4>
+        </div>
+      </div>
+      <hr style="border-color: black"/>
+
+      <h4 >
+        <small>Secretaria</small> <br/>
+        <%= @phone.office.name %>
+      </h4>
+      <h4 >
+        <small>Departamento</small> <br/>
+        <%= @phone.department.name %>
+      </h4>
+      <h4>
+        <small>Setor</small> <br/>
+        <%= @phone.sector.name %>
+      </h4>
+    </div>
+    <div class="modal-footer">
+      <%= link_to 'Editar', edit_phone_path(@phone), remote: true, class: 'btn btn-primary' %>
+      <%= link_with_icon((t 'destroy'), phone_delete_path(@phone), 'glyphicon-trash', {'data-remote' => true, class: 'btn btn-danger'}) %>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
     </div>
   </div>
 </div>
