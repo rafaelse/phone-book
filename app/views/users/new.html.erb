@@ -1,10 +1,11 @@
 <%= content_for :header_title, (t 'view.user.header') %>
 
-<div class="well">
-  <h1><%= t 'view.user.header_new' %></h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2><%= t 'view.user.header_new' %></h2>
+  </div>
 
-  <%= render 'form', user: @user %>
-
-  <%= link_with_icon (t 'back'), users_path, "glyphicon-chevron-left",
-                     {class: "btn btn-default", style: "margin-top: 2px"}  %>
+  <div class="panel-body" id="phone_form">
+    <%= render 'form', user: @user %>
+  </div>
 </div>
