@@ -7,6 +7,13 @@ pt:
   'false': 'Não'
   city_hall: 'Prefeitura Municipal de Jaboticabal'
   phone_book: 'Lista Telefônica'
+  close: 'Fechar'
+  cancel: 'Cancelar'
+  sec_office: 'Secretaria'
+  department: 'Departamento'
+  sector: 'Setor'
+  no: 'Não'
+  phone: 'Telefone'
 
   exceptions:
     user:
@@ -79,6 +86,15 @@ pt:
       delete:
         confirmation_message: 'Deseja realmente excluir este usuário?'
         confirmation_yes: 'Sim, excluir usuário'
+    phone:
+      header_new: 'Cadastro de Telefone'
+      header_edit: 'Edição de Telefone'
+      header_delete: 'Exclusão de Telefone'
+      delete:
+        confirmation_message: 'Deseja realmente excluir este telefone?'
+        confirmation_yes: 'Sim, excluir telefone'
+      form:
+        save_phone: 'Salvar Telefone'
 
   controller:
     user:
@@ -96,6 +112,14 @@ pt:
       user_authorization:
         login_required: 'Por favor, entre com usuário e senha'
         restricted_to_admins: 'Área restrita à administradores'
+    phone:
+      create:
+        ok: 'O telefone foi cadastrado com sucesso'
+      update:
+        ok: 'O telefone foi atualizado com sucesso'
+      delete:
+        ok: 'O telefone foi excluído com sucesso'
+
   navbar:
     manage_users: 'Gerenciar Usuários'
     add_phone: 'Adicionar Telefone'

@@ -1,9 +1,11 @@
 module UserAuthorization
   include SessionsHelper
+  include ApplicationHelper
 
   def authorize
     unless logged_in?
-      redirect_to login_url, notice: (t 'controller.concern.user_authorization.login_required')
+      flash[:notice] = (t 'controller.concern.user_authorization.login_required')
+      request.xhr? ? ajax_redirect_to(login_path) : redirect_to(login_url)
     end
   end
 

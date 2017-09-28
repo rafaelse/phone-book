@@ -1,9 +1,9 @@
 <div class="col-sm-12 container card" id="<%= phone.id %>" style="border-top-style: solid; border-top-width: 1px; border-top-color: lightgrey; padding: 10px">
   <div class="col-sm-12 col-md-6">
     <h3><%= phone.person.name %></h3>
-    <h5><small>Secretaria </small><%= phone.office.name %></h5>
-    <h5><small>Departamento </small><%= phone.department.name %></h5>
-    <h5><small>Setor </small><%= phone.sector.name %></h5>
+    <h5><small><%= t 'sec_office' %> </small><%= phone.office.name %></h5>
+    <h5><small><%= t 'department' %> </small><%= phone.department.name %></h5>
+    <h5><small><%= t 'sector' %></small><%= phone.sector.name %></h5>
   </div>
   <div class="col-sm-12 col-md-4">
     <h3><%= phone.ddr %></h3>

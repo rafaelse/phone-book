@@ -13,7 +13,7 @@
 
       <%= f.fields_for :person do |person_form| %>
           <div class="form-group">
-            <%= person_form.label :name, 'Pessoa:', class: "control-label col-sm-2" %>
+            <%= person_form.label :name, class: "control-label col-sm-2" %>
             <div class="col-sm-8">
               <%= person_form.text_field :name, id: 'person_field', class: 'form-control', placeholder: 'Ex: Fulano Ciclano' %>
             </div>
@@ -25,7 +25,7 @@
           <%= sector_form.fields_for :parent_division do |dept_form| %>
               <%= dept_form.fields_for :parent_division do |office_form| %>
                   <div class="form-group">
-                    <%= office_form.label :name, 'Secretaria:', class: "control-label col-sm-2" %>
+                    <%= office_form.label :name, (t 'sec_office'), class: "control-label col-sm-2" %>
                     <div class="col-sm-8">
                       <%= office_form.text_field :name, id: 'office_field', class: 'form-control', placeholder: 'Ex: Secretaria de Administração' %>
                     </div>
@@ -33,7 +33,7 @@
                   </div>
               <% end %>
               <div class="form-group">
-                <%= dept_form.label :name, 'Departamento:', class: "control-label col-sm-2" %>
+                <%= dept_form.label :name, (t 'department'), class: "control-label col-sm-2" %>
                 <div class="col-sm-8">
                   <%= dept_form.text_field :name, id: 'dept_field', class: 'form-control', placeholder: 'Ex: Tecnologia da Informação' %>
                 </div>
@@ -41,7 +41,7 @@
               </div>
           <% end %>
           <div class="form-group">
-            <%= sector_form.label :name, 'Setor:', class: "control-label col-sm-2" %>
+            <%= sector_form.label :name, (t 'sector'), class: "control-label col-sm-2" %>
             <div class="col-sm-8">
               <%= sector_form.text_field :name, id: 'sector_field', class: 'form-control', placeholder: 'Ex: Infraestrutura de Redes' %>
             </div>
@@ -50,13 +50,13 @@
       <% end %>
 
       <div class="form-group">
-        <%= f.label :ddr, 'DDR:', class: "control-label col-sm-2" %>
+        <%= f.label :ddr, class: "control-label col-sm-2" %>
         <div class="col-sm-8">
           <%= f.text_field :ddr, id: 'ddr_field', class: "form-control phone-masked", placeholder: 'Ex: (16) 3209 3313' %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :ramal, 'Ramal:', class: "control-label col-sm-2" %>
+        <%= f.label :ramal, class: "control-label col-sm-2" %>
         <div class="col-sm-8">
           <%= f.text_field :ramal, id: 'branch_field', class: "form-control branch-masked", placeholder: 'Ex: 3313' %>
         </div>
@@ -64,8 +64,8 @@
 
       <button type="submit" class="btn btn-success btn-lg col-sm-offset-2">
         <span class="glyphicon glyphicon-ok"></span>
-        Salvar
+        <%= t 'view.phone.form.save_phone' %>
       </button>
-      <%= link_to "Cancelar", root_url, class: "btn", data: {dismiss: "modal"} %>
+      <%= link_to (t 'cancel'), root_url, class: "btn", data: {dismiss: "modal"} %>
   <% end %>
 </div>

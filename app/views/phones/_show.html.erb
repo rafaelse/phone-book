@@ -2,12 +2,12 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title">Telefone</h4>
+      <h4 class="modal-title"><%= t 'phone' %></h4>
     </div>
     <div class="modal-body">
       <div class="media">
-        <div class="media-left media-middle">
-          <%= image_tag 'person.png', width: 60 %>
+        <div class="media-left media-bottom">
+          <%= image_tag 'person.png', width: 50 %>
         </div>
         <div class="media-body">
           <h2><%= @phone.person.name %></h2>
@@ -15,7 +15,7 @@
       </div>
       <div class="media">
         <div class="media-left media-middle">
-          <%= image_tag 'phone.jpg', width: 60 %>
+          <%= image_tag 'phone.png', width: 50 %>
         </div>
         <div class="media-body">
           <h3><%= @phone.ddr %></h3>
@@ -24,23 +24,27 @@
       </div>
       <hr style="border-color: black"/>
 
-      <h4 >
-        <small>Secretaria</small> <br/>
+      <h4>
+        <small><%= t 'sec_office' %></small>
+        <br/>
         <%= @phone.office.name %>
       </h4>
-      <h4 >
-        <small>Departamento</small> <br/>
+      <h4>
+        <small><%= t 'department' %></small>
+        <br/>
         <%= @phone.department.name %>
       </h4>
       <h4>
-        <small>Setor</small> <br/>
+        <small><%= t 'sector' %></small>
+        <br/>
         <%= @phone.sector.name %>
       </h4>
     </div>
-    <div class="modal-footer">
-      <%= link_to 'Editar', edit_phone_path(@phone), remote: true, class: 'btn btn-primary' %>
-      <%= link_with_icon((t 'destroy'), phone_delete_path(@phone), 'glyphicon-trash', {'data-remote' => true, class: 'btn btn-danger'}) %>
-      <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-    </div>
+    <% if logged_in? %>
+        <div class="modal-footer">
+          <%= link_with_icon((t 'edit'), edit_phone_path(@phone), 'glyphicon-edit', {class: 'btn btn-primary'}) %>
+          <%= link_with_icon((t 'destroy'), phone_delete_path(@phone), 'glyphicon-trash', {'data-remote' => true, class: 'btn btn-danger'}) %>
+        </div>
+    <% end %>
   </div>
 </div>
