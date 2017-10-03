@@ -3,13 +3,6 @@ class PhonesController < ApplicationController
   before_action :load_phones, only: [:search]
   skip_before_action :authorize, only: [:search, :show]
 
-  def search
-    @term = params[:term]
-    if !params[:term].blank?
-      @phones = Phone.search(params[:term])
-    end
-  end
-
   def new
     @phone = Phone.new
     @phone.build_person

@@ -1,0 +1,15 @@
+<div class="container" id="phone_list">
+  <div id="phone_results">
+    <% if @phones.empty? %>
+        <p class="lead">Nenhum telefone foi encontrado</p>
+    <% elsif @phones.size == 1 %>
+        <p class="lead"><span class="phone_count"><%= @phones.count %></span> telefone foi encontrado para <strong><%= @term %></strong></p>
+    <% else %>
+        <p class="lead"><span class="phone_count"><%= @phones.count %></span> telefone(s) foram encontrados para <strong><%= @term %></strong></p>
+    <% end %>
+  </div>
+
+  <%= render @phones %>
+</div>
+
+<div id="phone-modal" class="modal fade"></div>

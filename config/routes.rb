@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
 
-  root to: 'phones#search'
+  root to: 'search#index'
 
-  get 'phones/search'
-  get 'phones', to: 'phones#search'
-
-  get 'phones/update_depts', as: 'update_depts'
-  get 'phones/update_sectors', as: 'update_sectors'
+  get 'search', as: 'search', to: 'search#search'
 
   controller :sessions do
     get 'login' => :new
@@ -19,7 +15,7 @@ Rails.application.routes.draw do
   get 'divisions/search', to: 'divisions#root_search'
   get 'divisions/:id/search', to: 'divisions#children_search'
 
-  resources :phones, except: :index do
+  resources :phones do
     get 'delete'
   end
 

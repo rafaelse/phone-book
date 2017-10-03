@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912135247) do
+ActiveRecord::Schema.define(version: 20171002115226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
+  enable_extension "fuzzystrmatch"
+  enable_extension "pg_trgm"
 
   create_table "divisions", force: :cascade do |t|
     t.string   "name"

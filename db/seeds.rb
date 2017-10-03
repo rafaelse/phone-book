@@ -9,6 +9,7 @@
 Phone.delete_all
 Division.delete_all
 Person.delete_all
+User.delete_all
 
 rafael = Person.create(name: "Rafael Fernando dos Santos")
 gustavo = Person.create(name: "Gustavo Aleixo")
@@ -58,5 +59,7 @@ Phone.create(ddr: "(16) 3209 3309", ramal: "3309", person_id: silvia.id, divisio
 Phone.create(ddr: "(16) 3209 3314", ramal: "3314", person_id: ivana.id, division_id: protocolo.id)
 Phone.create(ddr: "(16) 3209 3314", ramal: "3314", person_id: ivana.id, division_id: arq_geral.id)
 Phone.create(ddr: "(16) 3209 3314", ramal: "3339", person_id: renata.id, division_id: sp.id)
+
+User.new(name: 'rafael', password: '123456', password_confirmation: '123456', admin: true).save(validate: false)
 
 

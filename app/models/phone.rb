@@ -11,7 +11,7 @@ class Phone < ApplicationRecord
   pg_search_scope :search, :against => [:ddr, :ramal],
                   :associated_against => {division: [:name, :ancestors],
                                           person: [:name]},
-                  :using => {tsearch: {:dictionary => "portuguese", :prefix => true, :any_word => true}},
+                  :using => {tsearch: {:dictionary => "portuguese", :prefix => true}, dmetaphone: {}, trigram: {}},
                   :ignoring => :accents
 
   def office
