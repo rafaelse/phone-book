@@ -39,5 +39,4 @@ class Phone < ApplicationRecord
     end
     super
   end
-
 end

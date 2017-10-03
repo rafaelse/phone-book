@@ -25,12 +25,12 @@
   <div class="container">
     <div class="col-xs-8 col-xs-offset-2" style="text-align: center" id="page_title">
       <h1><%= t 'phone_book' %></h1>
-      <h6 class="text-muted"><%= t 'city_hall' %></h6>
     </div>
     <form method="get" action="<%= search_path %>" class="form">
       <div class="form-group col-xs-10 col-xs-offset-1 has-feedback form-group-lg">
         <input class="form-control" name="term" placeholder="Pesquise por Pessoa, Divisão ou Número" autocomplete="off" type="text" autofocus>
-        <span class=" glyphicon glyphicon-search form-control-feedback" style="margin-right: 10px"></span>
+        <span class=" glyphicon glyphicon-search form-control-feedback" style="margin-right: 10px">
+        </span>
       </div>
     </form>
   </div>

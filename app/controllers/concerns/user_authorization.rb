@@ -11,8 +11,7 @@ module UserAuthorization
 
   def authorize_admin
     unless logged_in? and current_user.admin?
-      flash.now[:alert] = (t 'controller.concern.user_authorization.restricted_to_admins')
-      redirect_to login_url
+      redirect_to login_url, alert: (t 'controller.concern.user_authorization.restricted_to_admins')
     end
   end
 end
