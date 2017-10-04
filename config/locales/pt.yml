@@ -90,11 +90,13 @@ pt:
       header_new: 'Cadastro de Telefone'
       header_edit: 'Edição de Telefone'
       header_delete: 'Exclusão de Telefone'
+      header: 'Gerenciamento de Telefones'
       delete:
         confirmation_message: 'Deseja realmente excluir este telefone?'
         confirmation_yes: 'Sim, excluir telefone'
       form:
         save_phone: 'Salvar Telefone'
+
 
   controller:
     user:
