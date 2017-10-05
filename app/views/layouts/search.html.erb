@@ -21,23 +21,26 @@
 
 <div id="badge"></div>
 
-<div id="search-area">
-  <div class="container">
-    <div class="col-xs-8 col-xs-offset-2" style="text-align: center" id="page_title">
-      <h1><%= t 'phone_book' %></h1>
-    </div>
-    <form method="get" action="<%= search_path %>" class="form">
-      <div class="form-group col-xs-10 col-xs-offset-1 has-feedback form-group-lg">
-        <input class="form-control" name="term" placeholder="Pesquise por Pessoa, Divisão ou Número" autocomplete="off" type="text" autofocus>
-        <span class=" glyphicon glyphicon-search form-control-feedback" style="margin-right: 10px">
-        </span>
+<main>
+  <div id="search-area">
+    <div class="container">
+      <div class="col-xs-8 col-xs-offset-2" style="text-align: center" id="page_title">
+        <h1><%= t 'phone_book' %></h1>
       </div>
-    </form>
+      <form method="get" action="<%= search_path %>" class="form">
+        <div class="form-group col-xs-10 col-xs-offset-1 has-feedback form-group-lg">
+          <input class="form-control" name="term" placeholder="Pesquise por Pessoa, Divisão ou Número" autocomplete="off" type="text" autofocus>
+          <span class=" glyphicon glyphicon-search form-control-feedback" style="margin-right: 10px">
+        </span>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
-<footer class="footer" style="margin-left: 10px; margin-bottom: 10px;">
-  <span class="h4 text-muted"><%= t 'city_hall' %></span>
-</footer>
+  <footer class="footer" style="margin-left: 10px; margin-bottom: 10px; font-size: 2vmax">
+    <span class="text-muted"><%= t 'city_hall' %></span>
+  </footer>
+</main>
+
 </body>
 </html>
 

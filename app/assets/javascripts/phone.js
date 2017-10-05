@@ -14,7 +14,11 @@ $(function () {
                 $('#person_field').val(ui.item.name);
                 $('#phone_person_attributes_id').val(ui.item.id);
                 return false;
-            }
+            },
+            messages: {
+                noResults: '',
+                results: function () {}
+            },
         }).data("uiAutocomplete")._renderItem = function (ul, item) {
             return $("<li>").data("item.autocomplete", item)
                 .append("<a>" + item.name + "</a>")
@@ -36,7 +40,11 @@ $(function () {
                 $('#office_field').val(ui.item.name);
                 $('#phone_division_attributes_parent_division_attributes_parent_division_attributes_id').val(ui.item.id);
                 return false;
-            }
+            },
+            messages: {
+                noResults: '',
+                results: function () {}
+            },
         }).data("uiAutocomplete")._renderItem = function (ul, item) {
             return $("<li>").data("item.autocomplete", item)
                 .append("<a>" + item.name + "</a>")
@@ -63,7 +71,11 @@ $(function () {
                 $('#phone_division_attributes_parent_division_attributes_id').val(ui.item.id);
                 $('#office_field').prop('disabled', true);
                 return false;
-            }
+            },
+            messages: {
+                noResults: '',
+                results: function () {}
+            },
         }).data("uiAutocomplete")._renderItem = function (ul, item) {
             return $("<li>").data("item.autocomplete", item)
                 .append("<a>" + item.name + "</a>")
@@ -90,7 +102,11 @@ $(function () {
                 $('#phone_division_attributes_id').val(ui.item.id);
                 $('#dept_field').prop('disabled', true);
                 return false;
-            }
+            },
+            messages: {
+                noResults: '',
+                results: function () {}
+            },
         }).data("uiAutocomplete")._renderItem = function (ul, item) {
             return $("<li>").data("item.autocomplete", item)
                 .append("<a>" + item.name + "</a>")
