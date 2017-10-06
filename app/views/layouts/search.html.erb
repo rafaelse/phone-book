@@ -15,10 +15,9 @@
 
 <body>
 <%= render 'layouts/searchless_navbar' %>
-<div style="padding-top: 71px">
+<div style="padding-top: 71px; position: absolute; width: 100%">
   <%= render 'layouts/messages' %>
 </div>
-
 <div id="badge"></div>
 
 <main>
@@ -36,10 +35,11 @@
       </form>
     </div>
   </div>
-  <footer class="footer" style="margin-left: 10px; margin-bottom: 10px; font-size: 2vmax">
-    <span class="text-muted"><%= t 'city_hall' %></span>
-  </footer>
 </main>
+
+<footer class="footer" style="padding-left: 10px; padding-bottom: 10px; font-size: 2vmax">
+  <span class="text-muted"><%= t 'city_hall' %></span>
+</footer>
 
 </body>
 </html>

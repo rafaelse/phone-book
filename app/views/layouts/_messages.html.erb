@@ -1,10 +1,12 @@
 <div id="messages">
   <% if flash[:alert] %>
-      <div class="alert alert-danger">
+      <div class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <%= flash.alert %>
       </div>
   <% elsif flash[:notice] %>
-      <div class="alert alert-info">
+      <div class="alert alert-info alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <%= flash.notice %>
       </div>
   <% end %>
