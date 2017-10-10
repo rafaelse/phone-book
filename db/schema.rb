@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171002115226) do
+ActiveRecord::Schema.define(version: 20171010190036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20171002115226) do
     t.integer  "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "ancestors"
     t.index ["parent_id"], name: "index_divisions_on_parent_id", using: :btree
   end
 
@@ -34,12 +33,12 @@ ActiveRecord::Schema.define(version: 20171002115226) do
   end
 
   create_table "phones", force: :cascade do |t|
-    t.string   "ddr"
-    t.string   "ramal"
     t.integer  "person_id"
     t.integer  "division_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.bigint   "ddr"
+    t.integer  "branch",      limit: 2
     t.index ["division_id"], name: "index_phones_on_division_id", using: :btree
     t.index ["person_id"], name: "index_phones_on_person_id", using: :btree
   end

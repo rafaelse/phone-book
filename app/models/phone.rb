@@ -5,11 +5,11 @@ class Phone < ApplicationRecord
   belongs_to :division
   accepts_nested_attributes_for :division
 
-  validates :ramal, presence: true, format: {with: /[0-9]{4}/}
-  validates :ddr, presence: true, format: {with: /\([0-9]{2}\)\s[0-9]{4}\s[0-9]{4}/}, allow_blank: true
+  validates :branch, presence: true, format: {with: /[0-9]{4}/}
+  validates :ddr, presence: true, format: {with: /[0-9]{10}/}, allow_blank: true
 
-  pg_search_scope :search, :against => [:ddr, :ramal],
-                  :associated_against => {division: [:name, :ancestors],
+  pg_search_scope :search, :against => [:ddr, :branch],
+                  :associated_against => {division: [:name],
                                           person: [:name]},
                   :using => {tsearch: {:dictionary => "portuguese", :prefix => true}, dmetaphone: {}, trigram: {}},
                   :ignoring => :accents

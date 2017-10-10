@@ -28,7 +28,7 @@ pt:
         admin: 'Administrador?'
       phone:
         ddr: 'DDR'
-        ramal: 'Ramal'
+        branch: 'Ramal'
         person: 'Pessoa'
         division: 'Divisão'
       division:
@@ -61,7 +61,7 @@ pt:
               invalid: 'secretaria, departamento e setor devem ser informados'
             ddr:
               invalid: 'deve respeitar o formato (XX) XXXX XXXX'
-            ramal:
+            branch:
               invalid: 'deve respeitar o formato XXXX'
               blank: 'é campo obrigatório'
         division:

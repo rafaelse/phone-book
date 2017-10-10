@@ -13,8 +13,6 @@ class Division < ApplicationRecord
                   :using => {tsearch: {:dictionary => "portuguese", :prefix => true}},
                   :ignoring => :accents
 
-  before_save :update_ancestors
-
   scope :root_divisions, -> {where(parent_id: nil).order(name: :asc)}
   scope :children_divisions, -> (parent_id)  {where(parent_id: parent_id).order(name: :asc)}
 
@@ -31,15 +29,5 @@ class Division < ApplicationRecord
 
   def self.children_search(parent_id, term)
     Division.children_divisions(parent_id).search(term)
-  end
-
-  private
-
-  def update_ancestors(parent = parent_division, new_ancestors = '')
-    unless parent
-      self.ancestors = new_ancestors
-      return
-    end
-    update_ancestors(parent.parent_division, "#{new_ancestors} #{parent.name}")
   end
 end

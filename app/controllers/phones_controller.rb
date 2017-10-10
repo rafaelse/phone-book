@@ -51,7 +51,7 @@ class PhonesController < ApplicationController
   private
 
   def phone_params
-    params.require(:phone).permit(:ddr, :ramal, person_attributes: [:id, :name],
+    params.require(:phone).permit(:ddr, :branch, person_attributes: [:id, :name],
                                   division_attributes: [:id, :name,
                                                         parent_division_attributes: [:id, :name,
                                                                                      parent_division_attributes: [:id, :name]]])
