@@ -33,12 +33,12 @@ ActiveRecord::Schema.define(version: 20171010190036) do
   end
 
   create_table "phones", force: :cascade do |t|
+    t.string   "ddr"
+    t.string   "branch"
     t.integer  "person_id"
     t.integer  "division_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.bigint   "ddr"
-    t.integer  "branch",      limit: 2
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["division_id"], name: "index_phones_on_division_id", using: :btree
     t.index ["person_id"], name: "index_phones_on_person_id", using: :btree
   end

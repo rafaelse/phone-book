@@ -6,12 +6,12 @@ class Phone < ApplicationRecord
   accepts_nested_attributes_for :division
 
   validates :branch, presence: true, format: {with: /[0-9]{4}/}
-  validates :ddr, presence: true, format: {with: /[0-9]{10}/}, allow_blank: true
+  validates :ddr, presence: true, format: {with: /\([0-9]{2}\)\s[0-9]{4}\s[0-9]{4}/}, allow_blank: true
 
   pg_search_scope :search, :against => [:ddr, :branch],
                   :associated_against => {division: [:name],
                                           person: [:name]},
-                  :using => {tsearch: {:dictionary => "portuguese", :prefix => true}, dmetaphone: {}, trigram: {}},
+                  :using => {tsearch: {:dictionary => "portuguese", :prefix => true}, dmetaphone: {}, trigram: {:threshold => 0.3}},
                   :ignoring => :accents
 
   def office
