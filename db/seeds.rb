@@ -10,6 +10,7 @@ Phone.delete_all
 Division.delete_all
 Person.delete_all
 User.delete_all
+PgSearch::Document.delete_all
 
 rafael = Person.create(name: "Rafael Fernando dos Santos")
 gustavo = Person.create(name: "Gustavo Aleixo")

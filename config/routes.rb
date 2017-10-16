@@ -10,10 +10,17 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
-  get 'people/search'
+  resources :people do
+    get 'phones', on: :member
+    get 'search', on: :collection
+  end
 
-  get 'divisions/search', to: 'divisions#root_search'
-  get 'divisions/:id/search', to: 'divisions#children_search'
+  resources :divisions do
+    get 'search', on: :collection, to: 'divisions#root_search'
+    get 'search', on: :member, to: 'divisions#children_search'
+    get 'subdivisions', on: :member
+    get 'phones', on: :member
+  end
 
   resources :phones do
     get 'delete'

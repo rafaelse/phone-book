@@ -16,6 +16,8 @@ class Division < ApplicationRecord
   scope :root_divisions, -> {where(parent_id: nil).order(name: :asc)}
   scope :children_divisions, -> (parent_id)  {where(parent_id: parent_id).order(name: :asc)}
 
+  multisearchable :against => [:name]
+
   def parent_division_attributes=(attributes)
     if attributes['id'].present?
       self.parent_division = Division.find(attributes['id'])

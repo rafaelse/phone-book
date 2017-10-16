@@ -8,4 +8,6 @@ class Person < ApplicationRecord
                   :against => [:name],
                   :using => {tsearch: {:dictionary => "portuguese", :prefix => true}},
                   :ignoring => :accents
+
+  multisearchable :against => [:name]
 end

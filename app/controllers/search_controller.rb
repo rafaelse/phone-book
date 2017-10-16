@@ -7,10 +7,10 @@ class SearchController < ApplicationController
 
   def search
     @term = params[:term]
-    @phones = []
+    @documents = []
     unless params[:term].blank?
-      @phones = Phone.search(params[:term])
+      # @phones = Phone.search(params[:term])
+      @documents = PgSearch.multisearch(params[:term])
     end
-    render 'phones/index'
   end
 end

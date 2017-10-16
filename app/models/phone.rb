@@ -8,11 +8,7 @@ class Phone < ApplicationRecord
   validates :branch, presence: true, format: {with: /[0-9]{4}/}
   validates :ddr, presence: true, format: {with: /\([0-9]{2}\)\s[0-9]{4}\s[0-9]{4}/}, allow_blank: true
 
-  pg_search_scope :search, :against => [:ddr, :branch],
-                  :associated_against => {division: [:name],
-                                          person: [:name]},
-                  :using => {tsearch: {:dictionary => "portuguese", :prefix => true}, dmetaphone: {}, trigram: {:threshold => 0.3}},
-                  :ignoring => :accents
+  multisearchable :against => [:ddr, :branch]
 
   def office
     division.parent_division.parent_division

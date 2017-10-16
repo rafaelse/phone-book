@@ -5,4 +5,9 @@ class PeopleController < ApplicationController
   def search
     @people = Person.search(params[:term])
   end
+
+  def phones
+    @phones = Person.find(params[:id]).phones
+    render 'phones/index'
+  end
 end
