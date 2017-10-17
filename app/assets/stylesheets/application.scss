@@ -15,23 +15,23 @@
  *= require_self
  */
 
-.affix {
+nav.affix {
   top: 0;
   width: 100%;
   z-index: 9999 !important;
 }
 
-.affix + main, .affix + main .modal {
+nav.affix + main, nav.affix + main .modal {
   padding-top: 71px;
 }
 
-.affix-top .navbar-brand {
+nav.affix-top .navbar-brand {
   position: absolute;
   visibility: hidden;
   opacity: 0;
 }
 
-.affix .navbar-brand {
+nav.affix .navbar-brand {
   position: static;
   visibility: visible;
   opacity: 1;

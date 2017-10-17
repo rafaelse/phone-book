@@ -1,3 +1,32 @@
-<% @documents.each do |document| %>
-    <%= render document.searchable %>
-<% end %>
+<ul class="nav nav-tabs nav-justified" style="margin-bottom: 20px">
+  <li class="<%= 'active' if not @documents.empty? and @documents.first.searchable_type == 'Phone' %>">
+    <a data-toggle="tab" href="#phones">Telefones
+      (<%= @documents.collect {|document| document.searchable_type}.count('Phone') %>) </a>
+  </li>
+  <li class="<%= 'active' if not @documents.empty? and @documents.first.searchable_type == 'Person' %>">
+    <a data-toggle="tab" href="#people">Pessoas
+      (<%= @documents.collect {|document| document.searchable_type}.count('Person') %>)</a>
+  </li>
+  <li class="<%= 'active' if not @documents.empty? and @documents.first.searchable_type == 'Division' %>">
+    <a data-toggle="tab" href="#divisions">Divisões
+      (<%= @documents.collect {|document| document.searchable_type}.count('Division') %>)</a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div id="phones" class="tab-pane fade <%= 'in active' if not @documents.empty? and @documents.first.searchable_type == 'Phone' %>">
+    <% @documents.each do |document| %>
+        <%= render document.searchable if document.searchable_type == 'Phone' %>
+    <% end %>
+  </div>
+  <div id="people" class="tab-pane fade <%= 'in active' if not @documents.empty? and @documents.first.searchable_type == 'Person' %>">
+    <% @documents.each do |document| %>
+        <%= render document.searchable if document.searchable_type == 'Person' %>
+    <% end %>
+  </div>
+  <div id="divisions" class="tab-pane fade <%= 'in active' if not @documents.empty? and @documents.first.searchable_type == 'Division' %>">
+    <% @documents.each do |document| %>
+        <%= render document.searchable if document.searchable_type == 'Division' %>
+    <% end %>
+  </div>
+</div>
