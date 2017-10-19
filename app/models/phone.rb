@@ -1,5 +1,4 @@
 class Phone < ApplicationRecord
-  include PgSearch
   belongs_to :person
   accepts_nested_attributes_for :person
   belongs_to :division
@@ -7,8 +6,6 @@ class Phone < ApplicationRecord
 
   validates :branch, presence: true, format: {with: /[0-9]{4}/}
   validates :ddr, presence: true, format: {with: /\([0-9]{2}\)\s[0-9]{4}\s[0-9]{4}/}, allow_blank: true
-
-  multisearchable :against => [:ddr, :branch]
 
   searchkick
 

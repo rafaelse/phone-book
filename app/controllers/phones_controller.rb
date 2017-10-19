@@ -29,7 +29,7 @@ class PhonesController < ApplicationController
   def destroy
     @phone.destroy
     respond_to do |format|
-      format.js {flash[:notice] = (t 'controller.phone.delete.ok')}
+      format.js {flash.now[:notice] = (t 'controller.phone.delete.ok')}
     end
   end
 

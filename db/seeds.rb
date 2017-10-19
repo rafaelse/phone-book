@@ -10,7 +10,9 @@ Phone.delete_all
 Division.delete_all
 Person.delete_all
 User.delete_all
-PgSearch::Document.delete_all
+Phone.search_index.clean_indices
+Division.search_index.clean_indices
+Person.search_index.clean_indices
 
 rafael = Person.create(name: "Rafael Fernando dos Santos")
 gustavo = Person.create(name: "Gustavo Aleixo")
@@ -62,5 +64,9 @@ Phone.create(ddr: '(16) 3209 3314', branch:  3314, person_id: ivana.id, division
 Phone.create(ddr: '(16) 3209 3314', branch:  3339, person_id: renata.id, division_id: sp.id)
 
 User.new(name: 'rafael', password: '123456', password_confirmation: '123456', admin: true).save(validate: false)
+
+Phone.reindex
+Division.reindex
+Person.reindex
 
 
