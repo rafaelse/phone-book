@@ -1,32 +1,38 @@
 <ul class="nav nav-tabs nav-justified" style="margin-bottom: 20px">
-  <li class="<%= 'active' if not @documents.empty? and @documents.first.searchable_type == 'Phone' %>">
-    <a data-toggle="tab" href="#phones">Telefones
-      (<%= @documents.collect {|document| document.searchable_type}.count('Phone') %>) </a>
+  <li class="<%= 'active' if not @results[:items].empty? and @results[:first_item_type] == 'phone' %>">
+    <a data-toggle="tab" href="#phones">
+      Telefones
+      (<%= @results[:item_types_count]['phone'] ? @results[:item_types_count]['phone'] : 0 %>)
+    </a>
   </li>
-  <li class="<%= 'active' if not @documents.empty? and @documents.first.searchable_type == 'Person' %>">
-    <a data-toggle="tab" href="#people">Pessoas
-      (<%= @documents.collect {|document| document.searchable_type}.count('Person') %>)</a>
+  <li class="<%= 'active' if not @results[:items].empty? and @results[:first_item_type] == 'person' %>">
+    <a data-toggle="tab" href="#people">
+      Pessoas
+      (<%= @results[:item_types_count]['person'] ? @results[:item_types_count]['person'] : 0 %>)
+    </a>
   </li>
-  <li class="<%= 'active' if not @documents.empty? and @documents.first.searchable_type == 'Division' %>">
-    <a data-toggle="tab" href="#divisions">Divisões
-      (<%= @documents.collect {|document| document.searchable_type}.count('Division') %>)</a>
+  <li class="<%= 'active' if not @results[:items].empty? and @results[:first_item_type] == 'division' %>">
+    <a data-toggle="tab" href="#divisions">
+      Divisões
+      (<%= @results[:item_types_count]['division'] ? @results[:item_types_count]['division'] : 0 %>)
+    </a>
   </li>
 </ul>
 
 <div class="tab-content">
-  <div id="phones" class="tab-pane fade <%= 'in active' if not @documents.empty? and @documents.first.searchable_type == 'Phone' %>">
-    <% @documents.each do |document| %>
-        <%= render document.searchable if document.searchable_type == 'Phone' %>
+  <div id="phones" class="tab-pane fade <%= 'in active' if not @results[:items].empty? and @results[:first_item_type] == 'phone' %>">
+    <% @results[:items].each do |item| %>
+        <%= render item if item.class == Phone %>
     <% end %>
   </div>
-  <div id="people" class="tab-pane fade <%= 'in active' if not @documents.empty? and @documents.first.searchable_type == 'Person' %>">
-    <% @documents.each do |document| %>
-        <%= render document.searchable if document.searchable_type == 'Person' %>
+  <div id="people" class="tab-pane fade <%= 'in active' if not @results[:items].empty? and @results[:first_item_type] == 'person' %>">
+    <% @results[:items].each do |item| %>
+        <%= render item if item.class == Person %>
     <% end %>
   </div>
-  <div id="divisions" class="tab-pane fade <%= 'in active' if not @documents.empty? and @documents.first.searchable_type == 'Division' %>">
-    <% @documents.each do |document| %>
-        <%= render document.searchable if document.searchable_type == 'Division' %>
+  <div id="divisions" class="tab-pane fade <%= 'in active' if not @results[:items].empty? and @results[:first_item_type] == 'division' %>">
+    <% @results[:items].each do |item| %>
+        <%= render item if item.class == Division %>
     <% end %>
   </div>
 </div>

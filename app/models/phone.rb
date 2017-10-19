@@ -10,6 +10,8 @@ class Phone < ApplicationRecord
 
   multisearchable :against => [:ddr, :branch]
 
+  searchkick
+
   def office
     division.parent_division.parent_division
   end

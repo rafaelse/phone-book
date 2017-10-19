@@ -18,6 +18,8 @@ class Division < ApplicationRecord
 
   multisearchable :against => [:name]
 
+  searchkick word_start: [:name], language: "brazilian"
+
   def parent_division_attributes=(attributes)
     if attributes['id'].present?
       self.parent_division = Division.find(attributes['id'])
@@ -26,10 +28,10 @@ class Division < ApplicationRecord
   end
 
   def self.root_search(term)
-    Division.root_divisions.search(term)
+    Division.root_divisions.search term, fields: [:name], where: {parent_id: nil}, match: :word_start
   end
 
   def self.children_search(parent_id, term)
-    Division.children_divisions(parent_id).search(term)
+    Division.children_divisions(parent_id).search term, where: {parent_id: parent_id}, fields: [:name], match: :word_start
   end
 end

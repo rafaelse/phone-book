@@ -10,4 +10,6 @@ class Person < ApplicationRecord
                   :ignoring => :accents
 
   multisearchable :against => [:name]
+
+  searchkick word_start: [:name], language: "brazilian"
 end

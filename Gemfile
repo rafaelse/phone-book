@@ -37,6 +37,8 @@ gem 'pg_search'
 gem 'bootstrap-sass', '~> 3.3.5.1'
 # Jquery input masks
 gem 'jquery_mask_rails', '~> 0.1.0'
+# Elasticsearch made easy
+gem 'searchkick'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
