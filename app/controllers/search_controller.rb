@@ -14,9 +14,9 @@ class SearchController < ApplicationController
                                    index_name: [Phone, Person, Division],
                                    indices_boost: {Phone => 1, Division => 2, Person => 3},
                                    operator: "or",
-                                   misspellings: {below: 5, edit_distance: 5},
+                                   misspellings: {below: 3, edit_distance: 5},
                                    body_options: {min_score: 5},
-                                   fields: [{name: :word_start}, :ddr, {branch: :exact}]
+                                   fields: [{name: :word_start}, :ddr, :branch]
 
       unless results.response["hits"]["total"] == 0
         first_item_type = results.response["hits"]["hits"].first["_type"]
