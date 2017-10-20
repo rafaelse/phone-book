@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
 
+  before_action :set_person, only: [:phones]
   skip_before_action :authorize
 
   def search
@@ -7,7 +8,12 @@ class PeopleController < ApplicationController
   end
 
   def phones
-    @phones = Person.find(params[:id]).phones
-    render 'phones/index'
+    @phones = @person.phones
+  end
+
+  private
+
+  def set_person
+    @person = Person.find params[:id]
   end
 end

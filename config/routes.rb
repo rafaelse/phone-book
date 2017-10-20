@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :divisions do
     get 'search', on: :collection, to: 'divisions#root_search'
     get 'search', on: :member, to: 'divisions#children_search'
-    get 'subdivisions', on: :member
+    get 'divisions', on: :member
     get 'phones', on: :member
   end
 

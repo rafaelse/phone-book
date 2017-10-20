@@ -31,6 +31,7 @@ $.ajaxSetup({
 
 $(document).ready(function () {
     $(window).scroll(function () {
+        // var offset = $('header').outerHeight(true) + $('#messages').outerHeight(true) + $('ul.nav-tabs').outerHeight(true)
         var offset = $('header').outerHeight(true) + $('#messages').outerHeight(true) + $('ul.nav-tabs').outerHeight(true)
         if ($(this).scrollTop() > offset) {
             $('#back-to-top').fadeIn();

@@ -7,6 +7,8 @@ class Division < ApplicationRecord
 
   validates :name, presence: true
 
+  scope :root_divisions, -> {where(parent_id: nil)}
+
   searchkick word_start: [:name], language: "brazilian"
 
   def parent_division_attributes=(attributes)
