@@ -31,14 +31,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-# Enable full-text search through PostgreSQL
-gem 'pg_search'
 # Installs bootstrap
 gem 'bootstrap-sass', '~> 3.3.5.1'
 # Jquery input masks
 gem 'jquery_mask_rails', '~> 0.1.0'
 # Elasticsearch made easy
 gem 'searchkick'
+# Add breadcrumbs feature
+gem "breadcrumbs_on_rails"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

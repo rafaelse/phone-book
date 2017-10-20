@@ -1,5 +1,5 @@
 class DivisionsController < ApplicationController
-
+  before_action :set_division, only: [:divisions, :phones]
   skip_before_action :authorize
 
   def root_search
@@ -10,12 +10,21 @@ class DivisionsController < ApplicationController
     @divisions = Division.children_search(params[:id], params[:term])
   end
 
-  def subdivisions
-    @divisions = Division.find(params[:id]).subdivisions
+  def divisions
+    if @division
+      @divisions = @division.subdivisions and return
+    else
+      @divisions = Division.root_divisions and return
+    end
   end
 
   def phones
-    @phones = Division.find(params[:id]).phones
-    render 'phones/index'
+    @phones = @division.phones
+  end
+
+  private
+
+  def set_division
+    @division = Division.find(params[:id])
   end
 end
