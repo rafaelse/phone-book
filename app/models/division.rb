@@ -30,7 +30,7 @@ class Division < ApplicationRecord
     path = []
     division = self
     while division
-      path.push division
+      path.unshift division
       division = division.parent_division
     end
     return path

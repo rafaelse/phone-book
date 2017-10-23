@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   controller :search do
     get 'search', as: 'search'
-    get 'search/division/:id/divisions', to: 'search#divisions', as: 'search_subdivisions'
-    get 'search/divisions/:id', to: 'search#division', as: 'search_division'
-    get 'search/people/:id', to: 'search#person', as: 'search_person'
+    get 'search/division/:id/divisions', to: 'search#subdivisions', as: 'search_subdivisions'
+    get 'search/divisions/:id', to: 'search#divisions', as: 'search_divisions'
+    get 'search/people/:id', to: 'search#people', as: 'search_people'
   end
 
   controller :sessions do

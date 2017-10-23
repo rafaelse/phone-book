@@ -1,37 +1,37 @@
 <ul class="nav nav-tabs nav-justified" style="margin-bottom: 20px">
-  <li class="<%= 'active' if not @results[:items].empty? and @results[:first_item_type] == 'phone' %>">
+  <li class="<%= 'active' if @active_class == Phone %>">
     <a data-toggle="tab" href="#phones">
       Telefones
-      (<%= @results[:item_types_count]['phone'] ? @results[:item_types_count]['phone'] : 0 %>)
+      (<%= @phones.size %>)
     </a>
   </li>
-  <li class="<%= 'active' if not @results[:items].empty? and @results[:first_item_type] == 'person' %>">
+  <li class="<%= 'active' if @active_class == Person %>">
     <a data-toggle="tab" href="#people">
       Pessoas
-      (<%= @results[:item_types_count]['person'] ? @results[:item_types_count]['person'] : 0 %>)
+      (<%= @people.size %>)
     </a>
   </li>
-  <li class="<%= 'active' if not @results[:items].empty? and @results[:first_item_type] == 'division' %>">
+  <li class="<%= 'active' if @active_class == Division %>">
     <a data-toggle="tab" href="#divisions">
       Divisões
-      (<%= @results[:item_types_count]['division'] ? @results[:item_types_count]['division'] : 0 %>)
+      (<%= @divisions.size %>)
     </a>
   </li>
 </ul>
 
 <div class="tab-content">
-  <div id="phones" class="tab-pane fade <%= 'in active' if not @results[:items].empty? and @results[:first_item_type] == 'phone' %>">
-    <% @results[:items].each do |item| %>
+  <div id="phones" class="tab-pane fade <%= 'in active' if @active_class == Phone %>">
+    <% @phones.each do |item| %>
         <%= render 'search/phone', phone: item if item.class == Phone %>
     <% end %>
   </div>
-  <div id="people" class="tab-pane fade <%= 'in active' if not @results[:items].empty? and @results[:first_item_type] == 'person' %>">
-    <% @results[:items].each do |item| %>
+  <div id="people" class="tab-pane fade <%= 'in active' if @active_class == Person %>">
+    <% @people.each do |item| %>
         <%= render 'search/person', person: item if item.class == Person %>
     <% end %>
   </div>
-  <div id="divisions" class="tab-pane fade <%= 'in active' if not @results[:items].empty? and @results[:first_item_type] == 'division' %>">
-    <% @results[:items].each do |item| %>
+  <div id="divisions" class="tab-pane fade <%= 'in active' if @active_class == Division %>">
+    <% @divisions.each do |item| %>
         <%= render 'search/division', division: item if item.class == Division %>
     <% end %>
   </div>
