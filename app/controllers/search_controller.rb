@@ -1,6 +1,5 @@
 class SearchController < ApplicationController
   skip_before_action :authorize
-  layout 'application', only: [:search]
 
   def index
   end

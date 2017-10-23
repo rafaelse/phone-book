@@ -22,17 +22,17 @@
 <div class="tab-content">
   <div id="phones" class="tab-pane fade <%= 'in active' if not @results[:items].empty? and @results[:first_item_type] == 'phone' %>">
     <% @results[:items].each do |item| %>
-        <%= render item if item.class == Phone %>
+        <%= render 'search/phone', phone: item if item.class == Phone %>
     <% end %>
   </div>
   <div id="people" class="tab-pane fade <%= 'in active' if not @results[:items].empty? and @results[:first_item_type] == 'person' %>">
     <% @results[:items].each do |item| %>
-        <%= render item if item.class == Person %>
+        <%= render 'search/person', person: item if item.class == Person %>
     <% end %>
   </div>
   <div id="divisions" class="tab-pane fade <%= 'in active' if not @results[:items].empty? and @results[:first_item_type] == 'division' %>">
     <% @results[:items].each do |item| %>
-        <%= render item if item.class == Division %>
+        <%= render 'search/division', division: item if item.class == Division %>
     <% end %>
   </div>
 </div>

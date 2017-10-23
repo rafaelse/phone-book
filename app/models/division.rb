@@ -25,4 +25,14 @@ class Division < ApplicationRecord
   def self.children_search(parent_id, term)
     Division.search term, where: {parent_id: parent_id}, fields: [:name], match: :word_start
   end
+
+  def path
+    path = []
+    division = self
+    while division
+      path.push division
+      division = division.parent_division
+    end
+    return path
+  end
 end

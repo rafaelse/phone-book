@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
-  root to: 'search#index'
+  root to: 'index#index'
 
-  get 'search', as: 'search', to: 'search#search'
+  controller :search do
+    get 'search', as: 'search'
+    get 'search/division/:id/divisions', to: 'search#divisions', as: 'search_subdivisions'
+    get 'search/divisions/:id', to: 'search#division', as: 'search_division'
+    get 'search/people/:id', to: 'search#person', as: 'search_person'
+  end
 
   controller :sessions do
     get 'login' => :new
@@ -11,15 +16,12 @@ Rails.application.routes.draw do
   end
 
   resources :people do
-    get 'phones', on: :member
     get 'search', on: :collection
   end
 
   resources :divisions do
     get 'search', on: :collection, to: 'divisions#root_search'
     get 'search', on: :member, to: 'divisions#children_search'
-    get 'divisions', on: :member
-    get 'phones', on: :member
   end
 
   resources :phones do

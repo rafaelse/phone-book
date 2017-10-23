@@ -9,42 +9,18 @@
 
   <%= stylesheet_link_tag 'search', media: 'all' %>
   <%= javascript_include_tag 'search' %>
-  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Exo+2|Open+Sans|Raleway" %>
   <%= favicon_link_tag %>
   <%= favicon_link_tag 'BrasaoJaboticabal.png', rel: 'apple-touch-icon', type: 'image/png' %>
 </head>
 
 <body>
-<%= render 'layouts/searchless_navbar' %>
-<div style="padding-top: 71px; position: absolute; width: 100%">
-  <%= render 'layouts/messages' %>
+<div class="wrapper">
+  <%= render 'layouts/header' %>
+  <main class="container">
+    <%= yield %>
+  </main>
+  <%= render 'layouts/footer' %>
 </div>
-<div id="badge"></div>
-
-<main>
-  <div id="search-area">
-    <div class="container">
-      <div class="col-xs-8 col-xs-offset-2" style="text-align: center" id="page_title">
-        <h1><%= t 'phone_book' %></h1>
-      </div>
-      <form method="get" action="<%= search_path %>" class="form">
-        <div class="form-group col-xs-10 col-xs-offset-1 has-feedback form-group-lg">
-          <input class="form-control" name="term" placeholder="Pesquise por Pessoa, Divisão ou Número" autocomplete="off" type="text" autofocus>
-          <span class=" glyphicon glyphicon-search form-control-feedback" style="margin-right: 10px">
-        </span>
-        </div>
-      </form>
-    </div>
-  </div>
-</main>
-
-<footer class="footer" style="padding-left: 10px; padding-bottom: 10px; font-size: 2vmax">
-  <span class="text-muted"><%= t 'city_hall' %></span>
-</footer>
-
+<%= render 'layouts/scroll_top' %>
 </body>
 </html>
-
-
-
-

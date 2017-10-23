@@ -1,60 +1,76 @@
-// Place all the styles related to the Search controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 /*
-#= require_tree
-*= require_self
-*/
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap_config
+ *= require_self
+ */
 
-
-#search-area {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 40%;
-
-  position: absolute;
+nav.affix {
   top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  margin: auto;
+  width: 100%;
+  z-index: 9999 !important;
 }
 
-#badge {
-  width: 80%;
-  height: 80%;
-  position: fixed;
-  right: -10%;
-  bottom: -10%;
-  z-index: -1;
-  background-image: image_url("BrasaoJaboticabal.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom right;
-  filter: grayscale(100%) opacity(0.3);
+nav.affix + main, nav.affix + main .modal {
+  padding-top: 71px;
 }
 
-#page_title {
-  text-align: center;
-  font-family: 'Raleway', serif, Sans-Serif;
-  padding-bottom: 5px;
-  text-transform: lowercase;
+nav.affix-top .navbar-brand {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
 
-  h1 {
-    font-size: 8vh;
-  }
+nav.affix .navbar-brand {
+  position: static;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 500ms linear;
+}
 
-  h6 {
-    font-size: 2vh;
-  }
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 120px;
 }
 
 .footer {
   position: absolute;
+  max-height: 100px;
+  width: 100%;
   bottom: 0;
   left: 0;
+  margin-top: 71px;
 }
+
+.back-to-top {
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+}
+
+.card:hover {
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.2);
+  border: none 0px transparent !important;
+}
+
