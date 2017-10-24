@@ -9,7 +9,6 @@ class SearchController < ApplicationController
   def search
     @term = params[:term]
     unless params[:term].blank?
-      # @phones = Phone.search(params[:term])
       results = Searchkick.search params[:term],
                                   index_name: [Phone, Person, Division],
                                   indices_boost: {Phone => 1, Division => 2, Person => 3},
