@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010190036) do
+ActiveRecord::Schema.define(version: 20171024182314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,38 +19,46 @@ ActiveRecord::Schema.define(version: 20171010190036) do
   enable_extension "pg_trgm"
 
   create_table "divisions", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "parent_id"
+    t.string "name"
+    t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["parent_id"], name: "index_divisions_on_parent_id", using: :btree
+    t.index ["parent_id"], name: "index_divisions_on_parent_id"
   end
 
   create_table "people", force: :cascade do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "phones", force: :cascade do |t|
-    t.string   "ddr"
-    t.string   "branch"
-    t.integer  "person_id"
-    t.integer  "division_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["division_id"], name: "index_phones_on_division_id", using: :btree
-    t.index ["person_id"], name: "index_phones_on_person_id", using: :btree
+    t.string "ddr"
+    t.string "branch"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "phones_divisions", force: :cascade do |t|
+    t.bigint "phone_id"
+    t.bigint "division_id"
+    t.index ["division_id"], name: "index_phones_divisions_on_division_id"
+    t.index ["phone_id"], name: "index_phones_divisions_on_phone_id"
+  end
+
+  create_table "phones_people", force: :cascade do |t|
+    t.bigint "phone_id"
+    t.bigint "person_id"
+    t.index ["person_id"], name: "index_phones_people_on_person_id"
+    t.index ["phone_id"], name: "index_phones_people_on_phone_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "password_digest"
-    t.boolean  "admin"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string "name"
+    t.string "password_digest"
+    t.boolean "admin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "phones", "divisions"
-  add_foreign_key "phones", "people"
 end
