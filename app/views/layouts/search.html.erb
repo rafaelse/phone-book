@@ -17,6 +17,8 @@
 <div class="wrapper">
   <%= render 'layouts/header' %>
   <main class="container">
+    <%= render 'layouts/last_search' %>
+    <%= breadcrumbs style: :bootstrap %>
     <%= yield %>
   </main>
   <%= render 'layouts/footer' %>

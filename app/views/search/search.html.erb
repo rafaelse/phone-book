@@ -1,38 +1,5 @@
-<ul class="nav nav-tabs nav-justified" style="margin-bottom: 20px">
-  <li class="<%= 'active' if @active_class == Phone %>">
-    <a data-toggle="tab" href="#phones">
-      Telefones
-      (<%= @phones.size %>)
-    </a>
-  </li>
-  <li class="<%= 'active' if @active_class == Person %>">
-    <a data-toggle="tab" href="#people">
-      Pessoas
-      (<%= @people.size %>)
-    </a>
-  </li>
-  <li class="<%= 'active' if @active_class == Division %>">
-    <a data-toggle="tab" href="#divisions">
-      Divisões
-      (<%= @divisions.size %>)
-    </a>
-  </li>
-</ul>
+<% breadcrumb :search, @term %>
 
-<div class="tab-content">
-  <div id="phones" class="tab-pane fade <%= 'in active' if @active_class == Phone %>">
-    <% @phones.each do |item| %>
-        <%= render 'search/phone', phone: item if item.class == Phone %>
-    <% end %>
-  </div>
-  <div id="people" class="tab-pane fade <%= 'in active' if @active_class == Person %>">
-    <% @people.each do |item| %>
-        <%= render 'search/person', person: item if item.class == Person %>
-    <% end %>
-  </div>
-  <div id="divisions" class="tab-pane fade <%= 'in active' if @active_class == Division %>">
-    <% @divisions.each do |item| %>
-        <%= render 'search/division', division: item if item.class == Division %>
-    <% end %>
-  </div>
-</div>
+<%= render 'nav_tabs' %>
+
+<%= render 'tab_contents' %>

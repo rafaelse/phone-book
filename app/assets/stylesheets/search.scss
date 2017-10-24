@@ -69,8 +69,20 @@ html, body {
   display: none;
 }
 
+.card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  border: none 0px transparent !important;
+  margin-bottom: 5px;
+}
+
 .card:hover {
   box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.2);
-  border: none 0px transparent !important;
+}
+
+#last_search {
+  padding-left: 15px;
+  margin-bottom: 3px;
+  border-style: none;
+  box-shadow: none
 }
 

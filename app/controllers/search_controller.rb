@@ -1,6 +1,7 @@
 class SearchController < ApplicationController
   skip_before_action :authorize
   before_action :reset_results
+  before_action :save_search, only: [:search]
 
   def index
   end
@@ -27,30 +28,27 @@ class SearchController < ApplicationController
   end
 
   def people
-    person = Person.find(params[:id])
-    if person
+    @person = Person.find(params[:id])
+    if @person
       @active_class = Person
-      @people << person
+      @people << @person
     end
-    render 'search'
   end
 
   def divisions
-    division = Division.find(params[:id])
-    if division
+    @division = Division.find(params[:id])
+    if @division
       @active_class = Division
-      @divisions << division
+      @divisions << @division
     end
-    render 'search'
   end
 
   def subdivisions
-    division = Division.find(params[:id])
-    if division
+    @division = Division.find(params[:id])
+    if @division
       @active_class = Division
-      @divisions = division.subdivisions
+      @divisions = @division.subdivisions
     end
-    render 'search'
   end
 
   private
@@ -59,5 +57,9 @@ class SearchController < ApplicationController
     @phones = []
     @people = []
     @divisions = []
+  end
+
+  def save_search
+    session[:search] = params[:term]
   end
 end

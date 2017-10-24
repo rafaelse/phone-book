@@ -37,6 +37,8 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'jquery_mask_rails', '~> 0.1.0'
 # Elasticsearch made easy
 gem 'searchkick'
+# Breadcrumbs feature
+gem 'gretel'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

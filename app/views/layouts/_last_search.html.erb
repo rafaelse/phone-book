@@ -1,0 +1,5 @@
+<% if session[:search] %>
+    <div id="last_search" class="well well-sm text-muted" style="padding-left: 15px; margin-bottom: 3px; border-style: none; box-shadow: none">
+      Última busca: '<%= link_to session[:search], search_path(:term => session[:search]) %>'
+    </div>
+<% end %>
