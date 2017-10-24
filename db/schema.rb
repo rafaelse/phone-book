@@ -10,13 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171011183516) do
+ActiveRecord::Schema.define(version: 20171024182314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
-  enable_extension "fuzzystrmatch"
-  enable_extension "pg_trgm"
 
   create_table "divisions", id: :serial, force: :cascade do |t|
     t.string "name"
@@ -34,26 +32,27 @@ ActiveRecord::Schema.define(version: 20171011183516) do
     t.index ["name"], name: "index_people_on_name"
   end
 
-  create_table "pg_search_documents", force: :cascade do |t|
-    t.text "content"
-    t.string "searchable_type"
-    t.bigint "searchable_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
-  end
-
   create_table "phones", id: :serial, force: :cascade do |t|
     t.string "ddr"
     t.string "branch"
-    t.integer "person_id"
-    t.integer "division_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["branch"], name: "index_phones_on_branch"
     t.index ["ddr"], name: "index_phones_on_ddr"
-    t.index ["division_id"], name: "index_phones_on_division_id"
-    t.index ["person_id"], name: "index_phones_on_person_id"
+  end
+
+  create_table "phones_divisions", force: :cascade do |t|
+    t.bigint "phone_id"
+    t.bigint "division_id"
+    t.index ["division_id"], name: "index_phones_divisions_on_division_id"
+    t.index ["phone_id"], name: "index_phones_divisions_on_phone_id"
+  end
+
+  create_table "phones_people", force: :cascade do |t|
+    t.bigint "phone_id"
+    t.bigint "person_id"
+    t.index ["person_id"], name: "index_phones_people_on_person_id"
+    t.index ["phone_id"], name: "index_phones_people_on_phone_id"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
@@ -64,6 +63,4 @@ ActiveRecord::Schema.define(version: 20171011183516) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "phones", "divisions"
-  add_foreign_key "phones", "people"
 end
