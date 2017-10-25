@@ -1,5 +1,4 @@
-<% breadcrumb :search, @term %>
+<% content_for :breadcrumbs do %>
+    <% breadcrumb :search, @term %>
+<% end %>
 
-<%= render 'nav_tabs' %>
-
-<%= render 'tab_contents' %>

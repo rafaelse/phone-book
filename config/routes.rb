@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get 'search/division/:id/divisions', to: 'search#subdivisions', as: 'search_subdivisions'
     get 'search/divisions/:id', to: 'search#divisions', as: 'search_divisions'
     get 'search/people/:id', to: 'search#people', as: 'search_people'
+    get 'search/phones/:id', to: 'search#phones', as: 'search_phones'
   end
 
   controller :sessions do

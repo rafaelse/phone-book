@@ -1,5 +1,5 @@
 class Person < ApplicationRecord
-  has_many :phones
+  has_and_belongs_to_many :phones
   has_many :divisions, through: :phones
   validates :name, presence: true
 

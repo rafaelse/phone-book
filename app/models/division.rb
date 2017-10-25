@@ -1,5 +1,5 @@
 class Division < ApplicationRecord
-  has_many :phones
+  has_and_belongs_to_many :phones
   has_many :people, through: :phones
   belongs_to :parent_division, optional: true, class_name: 'Division', foreign_key: 'parent_id'
   accepts_nested_attributes_for :parent_division

@@ -2,10 +2,18 @@
   <h3><%= "#{phone.ddr} - " if phone.ddr %> <%= phone.branch %></h3>
 </div>
 <div class="col-xs-12">
-  <h4><%= link_to phone.person.name, search_people_path(phone.person) %></h4>
+  <h4>
+    <% phone.people.each_with_index do |person, index| %>
+        <%= link_to person.name, search_people_path(person) %>
+        <%= '|' unless index == phone.people.size - 1 %>
+    <% end %>
+  </h4>
 </div>
 <div class="col-xs-12">
   <h5>
-    <%= division_path_links(phone.division) %>
+    <% phone.divisions.each_with_index do |division, index| %>
+        <%= link_to division.name, search_divisions_path(division) %>
+        <%= '|' unless index == phone.divisions.size - 1 %>
+    <% end %>
   </h5>
 </div>

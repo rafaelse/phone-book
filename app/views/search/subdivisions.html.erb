@@ -1,5 +1,3 @@
-<% breadcrumb :search_divisions, @division %>
-
-<%= render 'nav_tabs' %>
-
-<%= render 'tab_contents' %>
+<% content_for :breadcrumbs do %>
+    <% breadcrumb :search_divisions, @division %>
+<% end %>

@@ -1,22 +1,22 @@
 <div class="tab-content">
   <div id="phones" class="tab-pane fade <%= 'in active' if @active_class == Phone %>">
     <% @phones.each do |item| %>
-        <div class="col-xs-12 container card" style="border-top-style: solid; border-top-width: 1px; border-top-color: lightgrey; padding: 10px">
-          <%= render 'search/phone', phone: item if item.class == Phone %>
+        <div class="col-xs-12 container card">
+          <%= render 'search/phone', phone: item %>
         </div>
     <% end %>
   </div>
   <div id="people" class="tab-pane fade <%= 'in active' if @active_class == Person %>">
     <% @people.each do |item| %>
-        <div class="col-xs-12 container card" style="border-top-style: solid; border-top-width: 1px; border-top-color: lightgrey; padding: 10px">
-          <%= render 'search/person', person: item if item.class == Person %>
+        <div class="col-xs-12 container card">
+          <%= render 'search/person', person: item %>
         </div>
     <% end %>
   </div>
   <div id="divisions" class="tab-pane fade <%= 'in active' if @active_class == Division %>">
     <% @divisions.each do |item| %>
-        <div class="col-xs-12 container card" style="border-top-style: solid; border-top-width: 1px; border-top-color: lightgrey; padding: 10px">
-          <%= render 'search/division', division: item if item.class == Division %>
+        <div class="col-xs-12 container card">
+          <%= render 'search/division', division: item %>
         </div>
     <% end %>
   </div>

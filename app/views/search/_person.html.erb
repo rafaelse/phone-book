@@ -7,7 +7,7 @@
         <%= link_to phone.ddr, "#" if phone.ddr %>
         <%= "-" if phone.ddr and phone.branch %>
         <%= link_to phone.branch, "#" if phone.branch %>
-        <%= '|' unless index == person.phones.size - 1 %>
+        <%= '|' unless index == person.phones.size - 1%>
     <% end %>
   </h4>
 </div>
@@ -15,7 +15,7 @@
   <h5>
     <% person.divisions.each_with_index do |division, index| %>
         <%= link_to division.name, search_divisions_path(division) %>
-        <%= "|" unless index == person.phones.size - 1 %>
+        <%= "|" unless index == person.divisions.size - 1 %>
     <% end %>
   </h5>
 </div>

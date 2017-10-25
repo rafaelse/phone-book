@@ -11,11 +11,11 @@ class SearchController < ApplicationController
     unless params[:term].blank?
       results = Searchkick.search params[:term],
                                   index_name: [Phone, Person, Division],
-                                  indices_boost: {Phone => 1, Division => 2, Person => 3},
+                                  indices_boost: {Phone => 10, Division => 3, Person => 8},
                                   operator: "or",
-                                  misspellings: {below: 3, edit_distance: 3},
-                                  body_options: {min_score: 2},
-                                  fields: [{name: :word_start}, :ddr, :branch]
+                                  misspellings: {below: 3, edit_distance: 2},
+                                  body_options: {min_score: 10},
+                                  fields: [{:name => :word_start}, :ddr, :branch]
 
       @active_class = results.results.empty? ? nil : results.results.first.class
       results.results.each do |result|
