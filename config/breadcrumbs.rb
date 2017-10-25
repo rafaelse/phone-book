@@ -2,6 +2,11 @@ crumb :root do
   link "Início", root_path
 end
 
+crumb :search_phones do |phone|
+  link phone.ddr, search_phones_path(phone)
+  parent :root
+end
+
 crumb :search_people do |person|
   link person.name, search_people_path(person)
   parent :root

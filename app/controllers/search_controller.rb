@@ -50,6 +50,14 @@ class SearchController < ApplicationController
     end
   end
 
+  def phones
+    @phone = Phone.find(params[:id])
+    if @phone
+      @active_class = Phone
+      @phones << @phone
+    end
+  end
+
   private
 
   def reset_results

@@ -4,7 +4,7 @@
 <div class="col-xs-12">
   <h4>
     <% person.phones.each_with_index do |phone, index| %>
-        <%= link_to phone.ddr, "#" if phone.ddr %>
+        <%= link_to phone.ddr, search_phones_path(phone) if phone.ddr %>
         <%= "-" if phone.ddr and phone.branch %>
         <%= link_to phone.branch, "#" if phone.branch %>
         <%= '|' unless index == person.phones.size - 1%>
